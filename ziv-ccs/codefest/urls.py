@@ -8,8 +8,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'codefest.views.home', name='home'),
-    # url(r'^codefest/', include('codefest.foo.urls')),
+    # url(r'^$', 'ziv-ccs.views.home', name='home'),
+    # url(r'^ziv-ccs/', include('ziv-ccs.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
