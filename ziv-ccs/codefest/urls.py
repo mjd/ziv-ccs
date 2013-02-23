@@ -18,4 +18,8 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
      (r'^/*$', 'civichero.views.home'),
+     (r'^user_profile/*$', 'civichero.views.user_profile'),
+     (r'^organizer_dashboard/*$', 'civichero.views.organizer_dashboard'),
+     (r'^leaderboard/*$', 'civichero.views.leaderboard'),
+     (r'^checkin/*$', 'civichero.views.checkin'),
 )
