@@ -6,11 +6,7 @@ from django.contrib import admin
 import models
 
 
-class UserAdmin(admin.ModelAdmin):
-
-    model = models.Citizen
-
-admin.site.register(models.Citizen, UserAdmin)
+admin.site.register(models.Citizen)
 admin.site.register(models.CivicProfile)
 admin.site.register(models.Organization)
 admin.site.register(models.Achievable)

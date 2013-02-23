@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import DetailView
 
-import models
+from models import Citizen
 
 
 def home(request):
@@ -59,9 +59,16 @@ def login(request):
 
 
 class CitizenDetailView(DetailView):
-    model = models.Citizen
-    template_name = 'user_profile.html'
+    model = Citizen
+    #template_name = 'user_profile.html'
+
+    # additional parameters
+    screen_name = None
 
     def get_object(self, queryset=None):
-        screenname = self.kwargs['screenname']
-        return queryset.get(screen_name=self.screenname)
+
+        self.screen_name = self.kwargs['screenname']
+
+        queryset = Citizen.objects.all()
+
+        return queryset.get(screen_name=self.screen_name)

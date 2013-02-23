@@ -21,7 +21,7 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
      (r'^/*$', 'codefest.civichero.views.home'),
-     (r'^user/profile/(\w+)$', 'codefest.civichero.views.user_profile'),
+     #(r'^user/profile/(\w+)$', 'codefest.civichero.views.user_profile'),
      (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
      (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),
      (r'^checkin/*$', 'codefest.civichero.views.checkin'),
@@ -31,6 +31,6 @@ urlpatterns = patterns('',
     #(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
 
     (r'^login$', 'django.contrib.auth.views.login'),
-    (r'^users/login/$', 'civichero.views.login'),
+    (r'^users/login/$', 'codefest.civichero.views.login'),
 
 )
