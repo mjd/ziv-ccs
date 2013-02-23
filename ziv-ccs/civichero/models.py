@@ -3,10 +3,17 @@ from django.db import models
 # Create your models here.
 
 
+class CivicType(models.Model):
+    avatar = models.ImageField(upload_to='uploads')
+    name = models.CharField(max_length = 50)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Profile(models.Model):
 
     screen_name = models.CharField(max_length = 25)
-    email = models.EmailField(max_length = 50)
     avatar = models.ImageField(upload_to='uploads')
 
 
@@ -14,23 +21,30 @@ class Profile(models.Model):
 class User(Profile):
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length = 50)
+    email = models.EmailField(max_length = 50)
     friends = models.ManyToManyField('self', symmetrical=True, null=True, blank=True)
 
     def __unicode__(self):
         return self.last_name + ', ' + self.first_name
 
+
 class Organization(Profile):
-    pass
+    full_name = models.CharField(max_length = 50)
+    civicType = models.ManyToOneRel(CivicType,"civicType")
+    url = models.URLField()
+    organizer = models.ManyToManyField('self', symmetrical=True, null=False, blank=False)
 
-
-class Organizer(models.Model):
-    pass
+    def __unicode__(self):
+        return self.full_name
 
 
 class Achievable(models.Model):
     """This defines how to earn an achievement.
+    TODO define requirements
     """
-    pass
+    avatar = models.ImageField(upload_to='uploads')
+    description = models.CharField(max_length = 50)
+
 
 
 class Achieved(models.Model):
@@ -39,7 +53,10 @@ class Achieved(models.Model):
 
 
 class Activity(models.Model):
-    pass
+    avatar = models.ImageField(upload_to='uploads')
+    description = models.CharField(max_length = 50)
+    civicType = models.ManyToOneRel(CivicType,"civicType")
+    points = models.PositiveIntegerField()
 
 
 class Event(Activity):
@@ -48,6 +65,7 @@ class Event(Activity):
 
 class Reward(models.Model):
     pass
+
 
 
 
