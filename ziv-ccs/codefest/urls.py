@@ -24,6 +24,8 @@ urlpatterns = patterns('',
      (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
      (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),
      (r'^checkin/*$', 'codefest.civichero.views.checkin'),
+
+     (r'^user/register/', CitizenDetailView.as_view()),
      (r'^user/profile/(?P<username>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view()),
 
      #Auth
