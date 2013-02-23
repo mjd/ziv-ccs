@@ -13,7 +13,6 @@ class UserAdmin(admin.ModelAdmin):
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Profile)
 admin.site.register(models.Organization)
-admin.site.register(models.Organizer)
 admin.site.register(models.Achievable)
 admin.site.register(models.Achieved)
 admin.site.register(models.Activity)
