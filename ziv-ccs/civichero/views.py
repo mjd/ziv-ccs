@@ -1,7 +1,10 @@
 # Create your views here.
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.generic import DetailView
+
+import models
 
 
 def home(request):
@@ -11,12 +14,14 @@ def home(request):
         'title': 'Home Page',
         }, context_instance=RequestContext(request))
 
+
 def organizer_dashboard(request):
 
 
     return render_to_response('organizer_dashboard.html', {
         'title': 'Organizer Dashboard',
         }, context_instance=RequestContext(request))
+
 
 def leaderboard(request):
 
@@ -25,16 +30,34 @@ def leaderboard(request):
         'title': 'Leaderboard',
         }, context_instance=RequestContext(request))
 
-def user_profile(request):
+
+@login_required(login_url='/user/login/')
+def user_profile(request, screenName):
+
+    citizen = models.Citizen.objects.get(screen_name=screenName)
+
+    citizen_id = citizen.id
+
+    return CitizenDetailView.as_view(id=citizen_id)
 
 
-    return render_to_response('user_profile.html', {
-        'title': 'Profile',
-        }, context_instance=RequestContext(request))
-
+@login_required(login_url='/user/login/')
 def checkin(request):
 
 
     return render_to_response('checkin.html', {
         'title': 'Checkin',
         }, context_instance=RequestContext(request))
+
+
+
+def login(request):
+
+    return render_to_response('registration/login.html', {
+        'title': 'Login',
+        }, context_instance=RequestContext(request))
+
+
+class CitizenDetailView(DetailView):
+    model = models.Citizen
+    template_name = 'user_profile.html'

@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 
+from django.views.generic import DetailView
+
 
 admin.autodiscover()
 
@@ -18,8 +20,16 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
      (r'^/*$', 'civichero.views.home'),
-     (r'^user_profile/*$', 'civichero.views.user_profile'),
-     (r'^organizer_dashboard/*$', 'civichero.views.organizer_dashboard'),
+     (r'^user/profile/(\w+)$', 'civichero.views.user_profile'),
+     (r'^organizer/(\w+)/dashboard/*$', 'civichero.views.organizer_dashboard'),
      (r'^leaderboard/*$', 'civichero.views.leaderboard'),
      (r'^checkin/*$', 'civichero.views.checkin'),
+     (r'^user/profile/(?P<screenname>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view(), name='user+profile'),
+
+     #Auth
+    #(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
+
+    (r'^login$', 'django.contrib.auth.views.login'),
+    (r'^users/login/$', 'civichero.views.login'),
+
 )
