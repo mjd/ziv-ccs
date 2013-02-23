@@ -58,17 +58,23 @@ def login(request):
         }, context_instance=RequestContext(request))
 
 
+#if not '@example.com' in request.user.email:
+#    return HttpResponse("You can't vote in this poll.")
+
+def register_user(request):
+    pass
+
+
 class CitizenDetailView(DetailView):
     model = Citizen
-    #template_name = 'user_profile.html'
+    template_name = 'user_profile.html'
 
     # additional parameters
-    screen_name = None
+    username = None
 
     def get_object(self, queryset=None):
 
-        self.screen_name = self.kwargs['screenname']
-
+        self.username = self.kwargs['username']
         queryset = Citizen.objects.all()
 
-        return queryset.get(screen_name=self.screen_name)
+        return queryset.get(user__username=self.username)

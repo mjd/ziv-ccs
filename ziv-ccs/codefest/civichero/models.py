@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.contrib.auth.models import User
 from django.db import models
 
 import LocationUtils
@@ -41,7 +42,7 @@ class Location(models.Model):
 
 class CivicProfile(models.Model):
 
-    screen_name = models.CharField(max_length = 25)
+    user = models.ForeignKey(User, unique=True)
     avatar = models.ImageField(upload_to='uploads')
 
 
