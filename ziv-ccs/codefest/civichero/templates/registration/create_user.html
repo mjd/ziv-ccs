@@ -1,9 +1,10 @@
 {% block title %}Register User{% endblock %}
 {% block content %}
-    <form method="post" action="">
-        <table>
-            {{ CitizenForm }}
-        </table>
-        <input type="submit" value="Submit Form"/>
+
+    <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+        {{ location_form.as_p }}
+
+        {{ citizen_form.as_p }}
+        <input type="submit" value="Submit" />
     </form>
 {%  endblock %}

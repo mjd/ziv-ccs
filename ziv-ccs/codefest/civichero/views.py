@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.views.generic import DetailView, CreateView
 
 from models import Citizen
-from forms import CitizenForm
+from forms import CitizenForm, LocationForm
 
 
 def setup_view(request, title):
@@ -78,12 +78,17 @@ def register_user(request):
     context = setup_view(request, 'Register')
 
     if request.method == 'POST': # If the form has been submitted...
-        form = CitizenForm(request.POST) # A form bound to the POST data
+        citizen_form = CitizenForm(request.POST, request.FILES) # A form bound to the POST data
+        location_form = LocationForm(request.POST)
 
-        if form.is_valid(): # All validation rules pass
+        if citizen_form.is_valid() and location_form.is_valid(): # All validation rules pass
 
             #Save the valid data
-            citizen = form.save(commit=True)
+            location = location_form.save(commit=True)
+            citizen = citizen_form.save(commit=False)
+            citizen.home_location = location
+            citizen.save(commit=True)
+
             #registrant.registration_date = today
             #registrant.save()
             context['citizen'] = citizen
@@ -91,10 +96,12 @@ def register_user(request):
             return render_to_response('user_profile.html', context, context_instance=RequestContext(request))
 
     else:
-        form = CitizenForm() # An unbound form
+        citizen_form = CitizenForm() # An unbound form
+        location_form = LocationForm()
 
-    context['form'] = form
-    return render_to_response('create_user.html', context, context_instance=RequestContext(request))
+    context['citizen_form'] = citizen_form
+    context['location_form'] = location_form
+    return render_to_response('registration/create_user.html', context, context_instance=RequestContext(request))
 
 
 
