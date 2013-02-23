@@ -21,16 +21,28 @@ def home(request):
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
 
-def organizer_dashboard(request):
-    context = setup_view(request, 'Organizer Dashboard')
+def friends(request):
+    context = setup_view(request, 'Friends')
 
-    return render_to_response('organizer_dashboard.html', context, context_instance=RequestContext(request))
+    return render_to_response('friends.html', context, context_instance=RequestContext(request))
+
+
+def schedule(request):
+    context = setup_view(request, 'Schedule')
+
+    return render_to_response('schedule.html', context, context_instance=RequestContext(request))
 
 
 def leaderboard(request):
     context = setup_view(request, 'Leaderboard')
 
     return render_to_response('leaderboard.html', context, context_instance=RequestContext(request))
+
+
+def organizer_dashboard(request):
+    context = setup_view(request, 'Organizer Dashboard')
+
+    return render_to_response('organizer_dashboard.html', context, context_instance=RequestContext(request))
 
 
 # @login_required(login_url='/user/login/')
