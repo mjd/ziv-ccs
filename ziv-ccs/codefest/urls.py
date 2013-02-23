@@ -5,6 +5,7 @@ from django.contrib import admin
 
 from django.views.generic import DetailView
 from civichero.views import CitizenDetailView
+from django.views.generic import RedirectView
 
 
 admin.autodiscover()
@@ -18,15 +19,19 @@ urlpatterns = patterns('',
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-     url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
-     (r'^/*$', 'codefest.civichero.views.home'),
-     (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
-     (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),
-     (r'^checkin/*$', 'codefest.civichero.views.checkin'),
+    (r'^/*$', RedirectView.as_view(url='/home')),
+    (r'^home/*$', 'codefest.civichero.views.home'),
+    (r'^schedule/*$', 'codefest.civichero.views.schedule'),
+    (r'^friends/*$', 'codefest.civichero.views.friends'),
+    (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),
 
-     (r'^user/register/', 'codefest.civichero.views.register_user'),
-     (r'^user/profile/(?P<username>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view()),
+    (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
+    (r'^checkin/*$', 'codefest.civichero.views.checkin'),
+
+    (r'^user/register/', 'codefest.civichero.views.register_user'),
+    (r'^user/profile/(?P<username>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view()),
 
      #Auth
      #(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
