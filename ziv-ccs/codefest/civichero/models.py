@@ -147,7 +147,7 @@ class AchievableRequirement(models.Model):
     pass
 
     def __unicode__(self):
-        return ""
+        return ''
 
 
 class ScoreRequirement(AchievableRequirement):
