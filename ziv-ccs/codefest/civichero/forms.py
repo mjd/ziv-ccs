@@ -22,12 +22,14 @@ class CitizenForm(ModelForm):
     """A form for creating new users. Includes all the
        required fields, plus a repeated password.
     """
+    username = forms.CharField()
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput)
     password2 = forms.CharField(
         label='Password confirmation',
         widget=forms.PasswordInput)
+
 
 
     class Meta:
@@ -47,28 +49,23 @@ class CitizenForm(ModelForm):
     def save(self, commit=True):
 
         #citizen Data
+        username = self.cleaned_data.get("username")
+        password = self.cleaned_data.get("password1")
         email = self.cleaned_data.get('email')
         avatar = self.cleaned_data.get('avatar')
         first_name = self.cleaned_data.get('first_name')
         last_name = self.cleaned_data.get('last_name')
 
-        user = User.objects.create(username)
         # Save the provided password in hashed format
-        user = super(CitizenForm,
-                     self).save(commit=False)
-
-        user.set_password(self.cleaned_data["password1"])
+        user = User.objects.create_user(username=username,
+                                        email=email,
+                                        password=password)
 
         if commit:
-            user.save()
-
-        citizen = Citizen.objects.create(email=email, first_name=first_name, last_name=last_name, avatar=avatar,
-                                         user=user)
-        if commit:
-            citizen.save()
+           user.save()
 
 
-        return citizen
+        return user
 
 
 """

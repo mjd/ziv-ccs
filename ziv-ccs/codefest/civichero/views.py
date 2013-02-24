@@ -1,5 +1,6 @@
 # Create your views here.
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import DetailView, CreateView
@@ -84,10 +85,17 @@ def register_user(request):
         if citizen_form.is_valid() and location_form.is_valid(): # All validation rules pass
 
             #Save the valid data
-            location = location_form.save(commit=True)
-            citizen = citizen_form.save(commit=False)
-            citizen.home_location = location
-            citizen.save(commit=True)
+            home_location = location_form.save(commit=True)
+            user = citizen_form.save(commit=False)
+
+            email = citizen_form.cleaned_data.get('email')
+            avatar = citizen_form.cleaned_data.get('avatar')
+            first_name = citizen_form.cleaned_data.get('first_name')
+            last_name = citizen_form.cleaned_data.get('last_name')
+
+            citizen = Citizen.objects.create(email=email, first_name=first_name, last_name=last_name, avatar=avatar,
+                                             user=user, home_location=home_location)
+            citizen.save()
 
             #registrant.registration_date = today
             #registrant.save()
