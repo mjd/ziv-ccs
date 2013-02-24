@@ -7,6 +7,8 @@ from django.views.generic import DetailView
 from civichero.views import CitizenDetailView, AchievableDetailView
 from django.views.generic import RedirectView
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 admin.autodiscover()
 
@@ -41,4 +43,8 @@ urlpatterns = patterns('',
     (r'^login$', 'django.contrib.auth.views.login'),
     (r'^users/login/$', 'codefest.civichero.views.login'),
 
+    #(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
+    #{'document_root': settings.STATIC_ROOT}),
 )
+
+urlpatterns += staticfiles_urlpatterns()
