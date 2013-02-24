@@ -1,9 +1,144 @@
+- fields: {app_label: civichero, model: achievable, name: achievable}
+  model: contenttypes.contenttype
+  pk: 18
+- fields: {app_label: civichero, model: achievablerequirement, name: achievable requirement}
+  model: contenttypes.contenttype
+  pk: 15
+- fields: {app_label: civichero, model: achieved, name: achieved}
+  model: contenttypes.contenttype
+  pk: 19
+- fields: {app_label: civichero, model: activity, name: activity}
+  model: contenttypes.contenttype
+  pk: 13
+- fields: {app_label: civichero, model: activityrecord, name: activity record}
+  model: contenttypes.contenttype
+  pk: 20
+- fields: {app_label: civichero, model: activityrequirement, name: activity requirement}
+  model: contenttypes.contenttype
+  pk: 17
+- fields: {app_label: civichero, model: citizen, name: citizen}
+  model: contenttypes.contenttype
+  pk: 11
+- fields: {app_label: civichero, model: civicprofile, name: civic profile}
+  model: contenttypes.contenttype
+  pk: 10
+- fields: {app_label: civichero, model: civictype, name: civic type}
+  model: contenttypes.contenttype
+  pk: 8
+- fields: {app_label: contenttypes, model: contenttype, name: content type}
+  model: contenttypes.contenttype
+  pk: 4
+- fields: {app_label: civichero, model: event, name: event}
+  model: contenttypes.contenttype
+  pk: 14
+- fields: {app_label: auth, model: group, name: group}
+  model: contenttypes.contenttype
+  pk: 2
+- fields: {app_label: civichero, model: location, name: location}
+  model: contenttypes.contenttype
+  pk: 9
+- fields: {app_label: admin, model: logentry, name: log entry}
+  model: contenttypes.contenttype
+  pk: 7
+- fields: {app_label: civichero, model: organization, name: organization}
+  model: contenttypes.contenttype
+  pk: 12
+- fields: {app_label: auth, model: permission, name: permission}
+  model: contenttypes.contenttype
+  pk: 1
+- fields: {app_label: civichero, model: reward, name: reward}
+  model: contenttypes.contenttype
+  pk: 21
+- fields: {app_label: civichero, model: scorerequirement, name: score requirement}
+  model: contenttypes.contenttype
+  pk: 16
+- fields: {app_label: sessions, model: session, name: session}
+  model: contenttypes.contenttype
+  pk: 5
+- fields: {app_label: sites, model: site, name: site}
+  model: contenttypes.contenttype
+  pk: 6
+- fields: {app_label: auth, model: user, name: user}
+  model: contenttypes.contenttype
+  pk: 3
+- fields: {expire_date: !!timestamp '2013-03-10 09:41:16.934230+00:00', session_data: 'YjA4YTQ1ZmM5M2ZiYTJjMDIzZDJhOGRkMDA0NThlN2Y5ZDY4YmQ5ZjqAAn1xAShVEl9hdXRoX3Vz
 
+      ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+
+      VQ1fYXV0aF91c2VyX2lkcQRLZHUu
+
+      '}
+  model: sessions.session
+  pk: ce5e1ade217ea89e53028f0de376fe4e
+- fields: {expire_date: !!timestamp '2013-03-10 10:15:39.269148+00:00', session_data: 'MTExYzU4ZjU5YjljOWZhZGUyMzMyOGM1ZDlmOTFkMjMxMGYzM2FlYjqAAn1xAShVEl9hdXRoX3Vz
+
+      ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+
+      VQ1fYXV0aF91c2VyX2lkcQRLAXUu
+
+      '}
+  model: sessions.session
+  pk: cf8228e612e41041eeda325b1e2a3216
+- fields: {domain: example.com, name: example.com}
+  model: sites.site
+  pk: 1
+- fields: {avatar: uploads/avatar.png, description: Do something to help the environment,
+    name: environmentalism}
+  model: civichero.civictype
+  pk: 100
+- fields: {avatar: uploads/avatar_1.png, description: Do something to help public
+      health, name: public health}
+  model: civichero.civictype
+  pk: 101
+- fields: {avatar: uploads/1361714721_dooffy_ikony_christmas_0004_apple.png, description: Purchase
+      of Local Food, name: Local Food}
+  model: civichero.civictype
+  pk: 102
+- fields: {avatar: uploads/1361714939_Art_Artdesigner.png, description: Going to Cultural
+      Events, name: Arts}
+  model: civichero.civictype
+  pk: 103
 - fields: {avatar: uploads/1361715158_Community_Help.png, description: Anything that
       fits in this category, name: Volunteer}
   model: civichero.civictype
   pk: 104
-
+- fields: {city: Pittsburgh, lat: '40.4274140', lon: '-79.9658350', place_name: Viz,
+    state: PA, street_address: 2730 Sidney Street, zip_code: '15203'}
+  model: civichero.location
+  pk: 100
+- fields: {city: Pittsburgh, lat: '40.4571847', lon: '-79.9168432', place_name: Google,
+    state: PA, street_address: 6425 Penn Ave, zip_code: '15206'}
+  model: civichero.location
+  pk: 200
+- fields: {city: Pittsburgh, lat: '40.4435037', lon: '-79.9415706', place_name: CMU,
+    state: pa, street_address: 5000 Forbes Ave, zip_code: '15213'}
+  model: civichero.location
+  pk: 300
+- fields: {city: pittsburgh, lat: '40.4395316', lon: '-79.8996284', place_name: Frick
+      Park, state: PA, street_address: 6750 Forbes Ave, zip_code: '15221'}
+  model: civichero.location
+  pk: 301
+- fields: {city: Pittsburgh, lat: '40.4223700', lon: '-79.8586030', place_name: Home,
+    state: PA, street_address: 127 Fairfax Rd., zip_code: '15221'}
+  model: civichero.location
+  pk: 302
+- fields: {city: Duquesne, lat: '40.3757050', lon: '-79.8423240', place_name: Food
+      Bank, state: PA, street_address: 1 N Linden Street, zip_code: '15110'}
+  model: civichero.location
+  pk: 303
+- fields: {city: Pittsburgh, lat: '40.4279110', lon: '-79.9774220', place_name: Brashear
+      Association, state: PA, street_address: 2005 Sarah Street, zip_code: '15203'}
+  model: civichero.location
+  pk: 304
+- fields: {avatar: uploads/avatar_1_1.png, civic_type: 100, description: Be an enviromental
+      steward for a few hours at frick park., location: 301, name: Enviromental Steward
+      at Frick Park, points: 20}
+  model: civichero.activity
+  pk: 100
+- fields: {avatar: uploads/1361715351_My_Documents.png, civic_type: 104, description: Thanksgiving
+      event, location: 303, name: Thanksgiving Dinner For Poor, points: 15}
+  model: civichero.activity
+  pk: 101
 - fields: {avatar: uploads/1361715518_sup.png, civic_type: 104, description: Soup
       Kitchen, location: 304, name: Soup Kitchen, points: 10}
   model: civichero.activity
@@ -48,60 +183,264 @@
   model: civichero.achievable
   pk: 102
 
+- fields: {codename: add_logentry, content_type: 7, name: Can add log entry}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_logentry, content_type: 7, name: Can change log entry}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_logentry, content_type: 7, name: Can delete log entry}
+  model: auth.permission
+  pk: 21
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_user, content_type: 3, name: Can add user}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_user, content_type: 3, name: Can change user}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_user, content_type: 3, name: Can delete user}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_achievable, content_type: 18, name: Can add achievable}
+  model: auth.permission
+  pk: 52
+- fields: {codename: change_achievable, content_type: 18, name: Can change achievable}
+  model: auth.permission
+  pk: 53
+- fields: {codename: delete_achievable, content_type: 18, name: Can delete achievable}
+  model: auth.permission
+  pk: 54
+- fields: {codename: add_achievablerequirement, content_type: 15, name: Can add achievable
+      requirement}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_achievablerequirement, content_type: 15, name: Can change
+      achievable requirement}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_achievablerequirement, content_type: 15, name: Can delete
+      achievable requirement}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_achieved, content_type: 19, name: Can add achieved}
+  model: auth.permission
+  pk: 55
+- fields: {codename: change_achieved, content_type: 19, name: Can change achieved}
+  model: auth.permission
+  pk: 56
+- fields: {codename: delete_achieved, content_type: 19, name: Can delete achieved}
+  model: auth.permission
+  pk: 57
+- fields: {codename: add_activity, content_type: 13, name: Can add activity}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_activity, content_type: 13, name: Can change activity}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_activity, content_type: 13, name: Can delete activity}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_activityrecord, content_type: 20, name: Can add activity
+      record}
+  model: auth.permission
+  pk: 58
+- fields: {codename: change_activityrecord, content_type: 20, name: Can change activity
+      record}
+  model: auth.permission
+  pk: 59
+- fields: {codename: delete_activityrecord, content_type: 20, name: Can delete activity
+      record}
+  model: auth.permission
+  pk: 60
+- fields: {codename: add_activityrequirement, content_type: 17, name: Can add activity
+      requirement}
+  model: auth.permission
+  pk: 49
+- fields: {codename: change_activityrequirement, content_type: 17, name: Can change
+      activity requirement}
+  model: auth.permission
+  pk: 50
+- fields: {codename: delete_activityrequirement, content_type: 17, name: Can delete
+      activity requirement}
+  model: auth.permission
+  pk: 51
+- fields: {codename: add_citizen, content_type: 11, name: Can add citizen}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_citizen, content_type: 11, name: Can change citizen}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_citizen, content_type: 11, name: Can delete citizen}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_civicprofile, content_type: 10, name: Can add civic profile}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_civicprofile, content_type: 10, name: Can change civic
+      profile}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_civicprofile, content_type: 10, name: Can delete civic
+      profile}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_civictype, content_type: 8, name: Can add civic type}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_civictype, content_type: 8, name: Can change civic type}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_civictype, content_type: 8, name: Can delete civic type}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_event, content_type: 14, name: Can add event}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_event, content_type: 14, name: Can change event}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_event, content_type: 14, name: Can delete event}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_location, content_type: 9, name: Can add location}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_location, content_type: 9, name: Can change location}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_location, content_type: 9, name: Can delete location}
+  model: auth.permission
+  pk: 27
+- fields: {codename: add_organization, content_type: 12, name: Can add organization}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_organization, content_type: 12, name: Can change organization}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_organization, content_type: 12, name: Can delete organization}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_reward, content_type: 21, name: Can add reward}
+  model: auth.permission
+  pk: 61
+- fields: {codename: change_reward, content_type: 21, name: Can change reward}
+  model: auth.permission
+  pk: 62
+- fields: {codename: delete_reward, content_type: 21, name: Can delete reward}
+  model: auth.permission
+  pk: 63
+- fields: {codename: add_scorerequirement, content_type: 16, name: Can add score requirement}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_scorerequirement, content_type: 16, name: Can change score
+      requirement}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_scorerequirement, content_type: 16, name: Can delete score
+      requirement}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_contenttype, content_type: 4, name: Can add content type}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_contenttype, content_type: 4, name: Can change content
+      type}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_contenttype, content_type: 4, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_session, content_type: 5, name: Can add session}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_session, content_type: 5, name: Can change session}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_session, content_type: 5, name: Can delete session}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_site, content_type: 6, name: Can add site}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_site, content_type: 6, name: Can change site}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_site, content_type: 6, name: Can delete site}
+  model: auth.permission
+  pk: 18
 - fields:
-    date_joined: 2013-02-24 12:36:51.478000+00:00
-    email: lbatlle@gmail.com
+    date_joined: 2013-02-24 09:39:42.000522+00:00
+    email: jon@jon.com
     first_name: ''
     groups: []
     is_active: true
     is_staff: true
     is_superuser: true
-    last_login: 2013-02-24 08:37:25.404000+00:00
+    last_login: 2013-02-24 10:15:39.265720+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$2v8x35icsuGj$UeChU1AkB3ycf8jBq3dbYvSmoIOYSpKZn5aIZDhze6U=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
-    username: me
+    username: jlparise
   model: auth.user
   pk: 1
 - fields:
-    date_joined: 2013-02-24 07:21:53.352068+00:00
+    date_joined: 2013-02-24 02:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 07:21:53.352058+00:00
+    last_login: 2013-02-24 09:41:16.930699+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$FmDJCIFQZ3Q3$udpBXXRguSWNDNSdkm49tT0MrmZB53H4V9HIK4eObsk=
     user_permissions: []
     username: dan
   model: auth.user
   pk: 100
 - fields:
-    date_joined: 2013-02-24 07:21:53.352068+00:00
+    date_joined: 2013-02-24 02:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 07:21:53.352058+00:00
+    last_login: 2013-02-24 09:43:14.725653+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$ljG74CrRGIfX$gsEu+ScwIaQ/Q1KUU8Xhfu0msWeTGkCq30ob4LZ9ZXw=
     user_permissions: []
     username: jon
   model: auth.user
   pk: 200
 - fields:
-    date_joined: 2013-02-24 07:21:53.352068+00:00
+    date_joined: 2013-02-24 02:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 07:21:53.352058+00:00
+    last_login: 2013-02-24 02:21:53.352058+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -109,14 +448,14 @@
   model: auth.user
   pk: 300
 - fields:
-    date_joined: 2013-02-24 07:21:53.352068+00:00
+    date_joined: 2013-02-24 02:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 07:21:53.352058+00:00
+    last_login: 2013-02-24 10:13:36.365941+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -172,38 +511,23 @@
     user: 1}
   model: admin.logentry
   pk: 1
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 09:20:24.819000+00:00',
-    change_message: '', content_type: 18, object_id: '102', object_repr: Contruction
-      Wiz, user: 1}
-  model: admin.logentry
-  pk: 14
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 09:17:14.481000+00:00',
-    change_message: '', content_type: 18, object_id: '101', object_repr: Neighborhood
-      Hero, user: 1}
-  model: admin.logentry
-  pk: 13
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 09:07:04.493000+00:00',
-    change_message: No fields changed., content_type: 18, object_id: '100', object_repr: demo,
-    user: 1}
-  model: admin.logentry
-  pk: 12
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 08:54:30.323000+00:00',
-    change_message: No fields changed., content_type: 16, object_id: '2', object_repr: 10or
-      moreenvironmentalism, user: 1}
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:27.707136+00:00',
+    change_message: Changed status., content_type: 20, object_id: '1', object_repr: ActivityRecord
+      object, user: 1}
   model: admin.logentry
   pk: 11
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:44:54.465000+00:00',
-    change_message: '', content_type: 16, object_id: '2', object_repr: ScoreRequirement
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:24.257358+00:00',
+    change_message: Changed status., content_type: 20, object_id: '2', object_repr: ActivityRecord
       object, user: 1}
   model: admin.logentry
   pk: 10
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 08:43:07.593000+00:00',
-    change_message: Changed requirements., content_type: 18, object_id: '100', object_repr: Achievable
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:20.248617+00:00',
+    change_message: Changed status., content_type: 20, object_id: '3', object_repr: ActivityRecord
       object, user: 1}
   model: admin.logentry
   pk: 9
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:42:48.995000+00:00',
-    change_message: '', content_type: 17, object_id: '1', object_repr: ActivityRequirement
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:16.294102+00:00',
+    change_message: Changed status., content_type: 20, object_id: '4', object_repr: ActivityRecord
       object, user: 1}
   model: admin.logentry
   pk: 8

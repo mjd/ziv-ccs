@@ -56,9 +56,13 @@ def home(request):
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
-
+@login_required(login_url='/user/login/')
 def friends(request):
     context = setup_view(request, 'Friends')
+
+    citizen = context['citizen']
+    context['friends'] = citizen.friends.all()
+    context['civic_zero'] = len(context['friends'])<= 0
 
     return render_to_response('friends.html', context, context_instance=RequestContext(request))
 

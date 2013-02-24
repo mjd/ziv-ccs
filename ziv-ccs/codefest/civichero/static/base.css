@@ -71,4 +71,12 @@ div.mastfoot {
     margin: 0;
 }
 
+#friend_list ul li  {
+    display: block;
+    list-style-type: none;
+    border-top: none;
+    padding: 6px 7px;
+    margin: 0;
+}
+
 

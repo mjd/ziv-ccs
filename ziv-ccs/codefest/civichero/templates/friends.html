@@ -2,6 +2,21 @@
 {% block title %}Friends{% endblock %}
 
 {%  block content %}
-    <h1>Civic zero</h1>
-    <p>You have no friends :(</p>
+
+    {% if civic_zero %}
+        <h1>Civic zero</h1>
+        <p>You have no friends :(</p>
+    {% else %}
+        <div id="friend_list">
+        <ul>
+        {% for friend in friends %}
+            <li>
+                <a href="/user/profile/{{ friend.user.username }}"><img width=64 src="{{ friend.avatar.url }}"/></a>
+                {{ friend.first_name }} {{ friend.last_name }} <a href="/user/profile/{{ friend.user.username }}">View Profile</a><br/>
+            </li>
+        {% endfor%}
+        </ul>
+        </div>
+    {% endif %}
+
 {% endblock %}
