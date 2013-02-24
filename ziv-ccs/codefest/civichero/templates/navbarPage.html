@@ -25,7 +25,7 @@
         This week's achievements:
         <div class="well">
             {%  for achievement in achievements %}
-                    <span><img src="{{  achievement.avatar.url }}" width="32"/></span>
+                    <span><img src="{{  achievement.avatar.url }}" width="32" alt="{{ achievement.name }} - {{ achievement.description }}"/></span>
             {%  endfor %}
         </div>
     </div>

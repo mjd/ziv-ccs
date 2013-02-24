@@ -61,16 +61,25 @@
 - fields: {app_label: auth, model: user, name: user}
   model: contenttypes.contenttype
   pk: 3
-- fields: {expire_date: !!timestamp '2013-03-10 09:41:16.934230+00:00', session_data: 'YjA4YTQ1ZmM5M2ZiYTJjMDIzZDJhOGRkMDA0NThlN2Y5ZDY4YmQ5ZjqAAn1xAShVEl9hdXRoX3Vz
+- fields: {expire_date: !!timestamp '2013-03-10 10:22:21.885324+00:00', session_data: 'M2U0YTZiMjEyOTcwMTNjZTgzYzM0ZDY4OWNiYjg4YjJjNDI3MDc0OTqAAn1xAShVEl9hdXRoX3Vz
 
       ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
 
-      VQ1fYXV0aF91c2VyX2lkcQRLZHUu
+      VQ1fYXV0aF91c2VyX2lkcQRNLAF1Lg==
 
       '}
   model: sessions.session
-  pk: ce5e1ade217ea89e53028f0de376fe4e
-- fields: {expire_date: !!timestamp '2013-03-10 10:15:39.269148+00:00', session_data: 'MTExYzU4ZjU5YjljOWZhZGUyMzMyOGM1ZDlmOTFkMjMxMGYzM2FlYjqAAn1xAShVEl9hdXRoX3Vz
+  pk: 36b60f4bee2469209baf13a0de1e874e
+- fields: {expire_date: !!timestamp '2013-03-10 12:20:37.085826+00:00', session_data: 'NTkwZGUyMTBiNzg0NTlmNDVmNzU0MDg3MWQwMzFlYzBjYWY3OWZjMTqAAn1xAShVCnRlc3Rjb29r
+
+      aWVxAlUGd29ya2VkcQNVDV9hdXRoX3VzZXJfaWRLyFUSX2F1dGhfdXNlcl9iYWNrZW5kVSlkamFu
+
+      Z28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHUu
+
+      '}
+  model: sessions.session
+  pk: 389d68eddb3dbfc14e03723f9ce82ad6
+- fields: {expire_date: !!timestamp '2013-03-10 12:20:57.951934+00:00', session_data: 'MTExYzU4ZjU5YjljOWZhZGUyMzMyOGM1ZDlmOTFkMjMxMGYzM2FlYjqAAn1xAShVEl9hdXRoX3Vz
 
       ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
 
@@ -78,7 +87,7 @@
 
       '}
   model: sessions.session
-  pk: cf8228e612e41041eeda325b1e2a3216
+  pk: 573457d833a8c8e2a9240dac5bd7036f
 - fields: {domain: example.com, name: example.com}
   model: sites.site
   pk: 1
@@ -182,6 +191,21 @@
     requirements: [1]
   model: civichero.achievable
   pk: 102
+- fields:
+    achievables: [100]
+    citizens: [200]
+  model: civichero.achieved
+  pk: 1
+- fields:
+    achievables: [101]
+    citizens: [200]
+  model: civichero.achieved
+  pk: 2
+- fields:
+    achievables: [102]
+    citizens: [200]
+  model: civichero.achieved
+  pk: 3
 
 - fields: {codename: add_logentry, content_type: 7, name: Can add log entry}
   model: auth.permission
@@ -388,16 +412,16 @@
   model: auth.permission
   pk: 18
 - fields:
-    date_joined: 2013-02-24 09:39:42.000522+00:00
+    date_joined: 2013-02-24 10:21:09.581717+00:00
     email: jon@jon.com
     first_name: ''
     groups: []
     is_active: true
     is_staff: true
     is_superuser: true
-    last_login: 2013-02-24 10:15:39.265720+00:00
+    last_login: 2013-02-24 12:20:57.632167+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
+    password: pbkdf2_sha256$10000$0xomAFiGfmrF$8gGZZSajcKBjB4dtr/Q4gwmhdSyRNAzTCLjeaxPedW0=
     user_permissions: []
     username: jlparise
   model: auth.user
@@ -410,9 +434,9 @@
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 09:41:16.930699+00:00
+    last_login: 2013-02-24 02:21:53.352058+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$FmDJCIFQZ3Q3$udpBXXRguSWNDNSdkm49tT0MrmZB53H4V9HIK4eObsk=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: dan
   model: auth.user
@@ -425,9 +449,9 @@
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 09:43:14.725653+00:00
+    last_login: 2013-02-24 12:06:41.410108+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$ljG74CrRGIfX$gsEu+ScwIaQ/Q1KUU8Xhfu0msWeTGkCq30ob4LZ9ZXw=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: jon
   model: auth.user
@@ -440,9 +464,9 @@
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 02:21:53.352058+00:00
+    last_login: 2013-02-24 10:22:21.881423+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: lya
   model: auth.user
@@ -455,9 +479,9 @@
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 10:13:36.365941+00:00
+    last_login: 2013-02-24 10:21:34.143786+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: mike
   model: auth.user
@@ -511,26 +535,6 @@
     user: 1}
   model: admin.logentry
   pk: 1
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:27.707136+00:00',
-    change_message: Changed status., content_type: 20, object_id: '1', object_repr: ActivityRecord
-      object, user: 1}
-  model: admin.logentry
-  pk: 11
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:24.257358+00:00',
-    change_message: Changed status., content_type: 20, object_id: '2', object_repr: ActivityRecord
-      object, user: 1}
-  model: admin.logentry
-  pk: 10
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:20.248617+00:00',
-    change_message: Changed status., content_type: 20, object_id: '3', object_repr: ActivityRecord
-      object, user: 1}
-  model: admin.logentry
-  pk: 9
-- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 10:16:16.294102+00:00',
-    change_message: Changed status., content_type: 20, object_id: '4', object_repr: ActivityRecord
-      object, user: 1}
-  model: admin.logentry
-  pk: 8
 - fields: {avatar: uploads/da_avatar.jpg, user: 100}
   model: civichero.civicprofile
   pk: 100
