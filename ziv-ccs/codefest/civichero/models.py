@@ -106,6 +106,8 @@ class Activity(models.Model):
     location = models.ForeignKey(Location, related_name='location', blank=True, null=True)
     points = models.PositiveIntegerField()
 
+    def __unicode__(self):
+        return self.name
 
 
 class Event(Activity):
@@ -122,6 +124,9 @@ class AchievableRequirement(models.Model):
     """
     pass
 
+    def __unicode__(self):
+        return ""
+
 
 class ScoreRequirement(AchievableRequirement):
     """
@@ -130,6 +135,8 @@ class ScoreRequirement(AchievableRequirement):
     civic_type = models.ForeignKey(CivicType)
     reqPoints = models.PositiveIntegerField()
 
+    def __unicode__(self):
+        return unicode(self.reqPoints) + ' or more ' + unicode(self.civic_type)
 
 class ActivityRequirement(AchievableRequirement):
     """
@@ -138,6 +145,8 @@ class ActivityRequirement(AchievableRequirement):
     activity = models.ForeignKey(Activity)
     reqCount = models.PositiveIntegerField()
 
+    def __unicode__(self):
+        return unicode(self.reqCount) + ' or more ' + unicode(self.activity)
 
 class Achievable(models.Model):
     """This defines how to earn an achievement.
@@ -147,6 +156,8 @@ class Achievable(models.Model):
     description = models.CharField(max_length=50)
     requirements = models.ManyToManyField(AchievableRequirement, related_name='requirements')
 
+    def __unicode__(self):
+        return self.name
 
 class Achieved(models.Model):
     """This is the achievement roll up for a user."""
