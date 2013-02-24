@@ -44,9 +44,6 @@ urlpatterns = patterns('',
     (r'^login$', 'django.contrib.auth.views.login'),
     (r'^logout', 'django.contrib.auth.views.logout'),
     (r'^users/login/$', 'codefest.civichero.views.login'),
-
-    #(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-    #{'document_root': settings.STATIC_ROOT}),
 )
 
 urlpatterns += staticfiles_urlpatterns()

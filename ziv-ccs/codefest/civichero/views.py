@@ -120,7 +120,7 @@ def register_user(request):
 
             context['citizen'] = citizen
 
-            return render_to_response('user_profile.html', context, context_instance=RequestContext(request))
+            return redirect(home)
 
     else:
         citizen_form = CitizenForm() # An unbound form

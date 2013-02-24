@@ -2,5 +2,6 @@
 {% block title %}User Profile{% endblock %}
 
 {%  block content %}
+    <img src="{{ citizen.avatar.url }}" />
     <p>Hi  {{ citizen.first_name }}, welcome to your profile!</p>
 {% endblock %}
