@@ -294,10 +294,19 @@ class EventDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(EventDetailView, self).get_context_data(**kwargs)
+        #request = context['request']
+        #context += setup_view(request, 'Event Details')
 
         event = Event.objects.get(id=self.event_id)
         now = datetime.now()
         has_started = event.start_date <= now.date() and event.start_time <= now.time()
+
+        #friend_plans = citizen.getFriendsPlannedEvents()
+        #location_infos = getActivityLocations()
+
+        #context['home_location'] = citizen.home_location
+        #context['location_infos'] = location_infos
+        #context['friend_plans'] = friend_plans
 
 
         # Add in a QuerySet of all the books

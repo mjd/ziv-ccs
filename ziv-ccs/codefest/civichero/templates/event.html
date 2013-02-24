@@ -1,16 +1,30 @@
-{% extends "base.html" %}
+{% extends "navbarPage.html" %}
 {% block title %}Event Details{% endblock %}
 
 {%  block content %}
+    <h2>Event Details</h2>
     <img src="{{ event.avatar.url }}" />
     <p>{{ event.name }}</p>
     <p>{{ event.description }}</p>
 
+        <p>{{ activity.description }}</p>
+        <p>Point type: {{ event.civic_type }}</p>
+        <p>point value: {{ event.points }}</p>
+
+        <address>{{  activity.location.getAddress}}</address>
+
     {% if has_started  %}
-        <a href="/checkin/{{ event.id }}">Check In!</a>
+        <form>
+            <input type="submit" value="Check In!" formaction="/checkin/{{ event.id }}">
+        </form>
+
     {% else %}
-        <a href="/addplanned/{{ event.id }}">Add to plan</a>
+        <form>
+            <input type="submit" value="Add to Plan" formaction="/addplanned/{{ event.id }}">
+        </form>
     {% endif %}
+
+
 
 
 {% endblock %}

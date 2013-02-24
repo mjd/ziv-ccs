@@ -2,10 +2,25 @@
 {% block title %}Activity Details{% endblock %}
 
 {%  block content %}
-    <img src="{{ activity.avatar.url }}" />
-    <p>{{ activity.name }}</p>
+    <h2>Activity Details</h2>
+    <p><img src="{{ activity.avatar.url }}" /> {{ activity.name }}</p>
     <p>{{ activity.description }}</p>
+    <p>Point type: {{ activity.civic_type }}</p>
+    <p>point value: {{ activity.points }}</p>
 
-    <a href="/checkin/{{ activity.id }}">Check In!</a>
+    <address>{{  activity.location.getAddress}}</address>
+
+    <form>
+    <input type="submit" value="Check In!" formaction="/checkin/{{ activity.id }}">
+    </form>
+
 
 {% endblock %}
+
+
+name = models.CharField(max_length=50)
+avatar = models.ImageField(upload_to='uploads')
+description = models.CharField(max_length=500)
+civic_type = models.ForeignKey(CivicType)
+location = models.ForeignKey(Location, related_name='location', blank=True, null=True)
+points = models.PositiveIntegerField()
