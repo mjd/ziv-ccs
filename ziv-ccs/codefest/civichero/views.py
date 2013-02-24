@@ -22,19 +22,33 @@ def setup_view(request, title):
         citizen = Citizen.objects.get(user=user)
         context['citizen'] = citizen
         context['point_totals'] = citizen.getPointTotals()
+    else:
+        context['citizen'] = None
 
     return context
+
+
+def getActivityLocations():
+
+    activities = Activity.objects.all()
+    location_infos = []
+
+    for activity in activities:
+        location_infos.append( (activity.name, activity.location) )
+
+    return location_infos
 
 
 def home(request):
     context = setup_view(request, 'Home Page')
     citizen = context['citizen']
+    location_infos = getActivityLocations()
 
     if None == citizen:
         return redirect(login)
 
-    #TODO change to current LOC
-    context['location'] = citizen.home_location
+    context['home_location'] = citizen.home_location
+    context['location_infos'] = location_infos
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 

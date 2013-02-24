@@ -122,6 +122,7 @@ class Activity(models.Model):
     points = models.PositiveIntegerField()
 
 
+
 class Event(Activity):
     event_location = models.ForeignKey(Location, related_name='event_location')
     cost = CurrencyField(decimal_places=2, max_digits=10, blank=True, default=0.00)
