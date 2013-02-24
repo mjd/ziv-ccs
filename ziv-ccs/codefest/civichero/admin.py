@@ -8,6 +8,7 @@ import models
 
 admin.site.register(models.Citizen)
 admin.site.register(models.CivicProfile)
+admin.site.register(models.CivicType)
 admin.site.register(models.Organization)
 admin.site.register(models.Achievable)
 admin.site.register(models.Achieved)

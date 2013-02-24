@@ -3,12 +3,14 @@ from django.contrib.auth.models import User
 from django.db import models
 
 import LocationUtils
+
 from fields import CurrencyField
 
 
 class CivicType(models.Model):
     avatar = models.ImageField(upload_to='uploads')
     name = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
 
     def __unicode__(self):
         return self.name
@@ -61,7 +63,7 @@ class Citizen(CivicProfile):
 
 class Organization(CivicProfile, Location):
     full_name = models.CharField(max_length=50)
-    civic_type = models.ManyToOneRel(CivicType, "civic_type")
+    civic_type = models.ForeignKey(CivicType)
     url = models.URLField()
     organizer = models.ManyToManyField('self', symmetrical=True, null=False, blank=False)
     location = models.ForeignKey(Location, related_name='organization_location')
@@ -86,11 +88,12 @@ class Achieved(models.Model):
 
 
 class Activity(models.Model):
+    name = models.CharField(max_length=50)
     avatar = models.ImageField(upload_to='uploads')
-    description = models.CharField(max_length=50)
-    civicType = models.ManyToOneRel(CivicType, "civicType")
-    points = models.PositiveIntegerField()
+    description = models.CharField(max_length=500)
+    civic_type = models.ForeignKey(CivicType)
     location = models.ForeignKey(Location, related_name='activity_location', blank=True, null=True)
+    points = models.PositiveIntegerField()
 
 
 class Event(Activity):
@@ -100,6 +103,25 @@ class Event(Activity):
     start_time = models.TimeField(default=datetime.now().time())
     end_date = models.DateField(blank=True, default=None, null=True)
     end_time = models.TimeField(blank=True, default=None, null=True)
+
+
+class ActivityRecord(models.Model):
+
+    RECORD_STATUS = (
+        (u'Completed', u'Completed'),
+        (u'Planned', u'Planned'),
+        (u'Missed', u'Missed'),
+    )
+
+    COMPLETED = RECORD_STATUS[0][0]
+    PLANNED = RECORD_STATUS[1][0]
+    MISSED = RECORD_STATUS[2][0]
+
+    activity = models.ForeignKey(Activity)
+    citizen = models.ForeignKey(Citizen)
+    civic_type = models.ForeignKey(CivicType)
+    timestamp = models.DateTimeField()
+    status = models.CharField(max_length=15, choices=RECORD_STATUS)
 
 
 class Reward(models.Model):

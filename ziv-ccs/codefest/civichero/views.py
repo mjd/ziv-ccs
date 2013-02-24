@@ -1,11 +1,13 @@
 # Create your views here.
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.views.generic import DetailView, CreateView
+from datetime import datetime
 
-from models import Citizen, Achievable
+from models import Citizen, Achievable, Activity, ActivityRecord
 from forms import CitizenForm, LocationForm
 
 
@@ -62,9 +64,22 @@ def organizer_dashboard(request):
 
 
 @login_required(login_url='/user/login/')
-def checkin(request):
-    context = setup_view(request, 'Checkin')
+def checkin(request, activity_id):
 
+    context = setup_view(request, 'Checkin')
+    activity_id = int(activity_id)
+    user = request.user
+    citizen = Citizen.objects.get(user=user)
+    activity = Activity.objects.get(id=activity_id)
+    #activity = Activity.objects.get(name='Environmental Steward')
+    civic_type = activity.civic_type
+
+    now = datetime.now()
+
+    record = ActivityRecord.objects.create(citizen=citizen, activity=activity, timestamp=now,
+                                           civic_type=civic_type, status=ActivityRecord.COMPLETED)
+
+    context['record'] = record
     return render_to_response('checkin.html', context, context_instance=RequestContext(request))
 
 
@@ -73,6 +88,7 @@ def login(request):
     context = setup_view(request, 'Login')
 
     return render_to_response('registration/login.html', context, context_instance=RequestContext(request))
+
 
 
 #example of restricting access if we need to do that

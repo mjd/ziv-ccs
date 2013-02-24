@@ -30,7 +30,7 @@ urlpatterns = patterns('',
     (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),
 
     (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
-    (r'^checkin/*$', 'codefest.civichero.views.checkin'),
+    (r'^checkin/(\d+)/*$', 'codefest.civichero.views.checkin'),
 
     (r'^achievements/(?P<name>[a-zA-Z0-9-]+)$', AchievableDetailView.as_view()),
 
@@ -41,6 +41,7 @@ urlpatterns = patterns('',
      #(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
 
     (r'^login$', 'django.contrib.auth.views.login'),
+    (r'^logout', 'django.contrib.auth.views.logout'),
     (r'^users/login/$', 'codefest.civichero.views.login'),
 
     #(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',

@@ -1,3 +1,4 @@
+#Locations
 - fields: {city: Pittsburgh, lat: '40.4274140', lon: '-79.9658350', place_name: Viz,
     state: PA, street_address: 2730 Sidney Street, zip_code: '15203'}
   model: civichero.location
@@ -10,6 +11,12 @@
     state: pa, street_address: 5000 Forbes Ave, zip_code: '15213'}
   model: civichero.location
   pk: 300
+- fields: {city: pittsburgh, lat: '40.4395316', lon: '-79.8996284', place_name: Frick
+      Park, state: PA, street_address: 6750 Forbes Ave, zip_code: '15221'}
+  model: civichero.location
+  pk: 301
+
+#Citizens
 - fields: {avatar: uploads/da_avatar.jpg, user: 100}
   model: civichero.civicprofile
   pk: 100
@@ -115,9 +122,22 @@
   model: civichero.citizen
   pk: 400
 
-
+#Achievables
 - fields: {avatar: uploads/avatar.png, description: Achieve this by doing stuff!,
     name: demo}
   model: civichero.achievable
   pk: 100
 
+- fields: {avatar: uploads/avatar.png, name: environmentalism, description: Do something to help the environment}
+  model: civichero.civictype
+  pk: 100
+- fields: {avatar: uploads/avatar_1.png, name: public health, description: Do something to help public health}
+  model: civichero.civictype
+  pk: 101
+
+#Activities
+- fields: {avatar: uploads/avatar_1_1.png, civic_type: 100, description: Be an enviromental
+      steward for a few hours at frick park., location: 301, name: Enviromental Steward
+      at Frick Park, points: 20}
+  model: civichero.activity
+  pk: 100
