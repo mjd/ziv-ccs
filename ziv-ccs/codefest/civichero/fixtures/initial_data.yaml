@@ -26,7 +26,7 @@
 - fields: {avatar: uploads/lya_avatar.jpg, user: 300}
   model: civichero.civicprofile
   pk: 300
-- fields: {avatar: uploads/da_avatar.jpg, user: 400}
+- fields: {avatar: uploads/mjd_avatar.jpg, user: 400}
   model: civichero.civicprofile
   pk: 400
 - fields:
