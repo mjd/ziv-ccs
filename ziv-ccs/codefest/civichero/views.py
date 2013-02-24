@@ -30,6 +30,7 @@ def home(request):
 
     citizen = Citizen.objects.get(user=user)
     context['point_totals'] = citizen.getPointTotals()
+    context['citizen'] = citizen
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
