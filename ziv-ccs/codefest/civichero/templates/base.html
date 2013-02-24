@@ -18,16 +18,22 @@
 <body>
 
 <div class="masthead">
-    <div class="logoimg">
-        <img src="{{ STATIC_URL }}civic-hero-logo.png">
-    </div>
     <table>
         <tr>
             <td>
-                {% block achieveFloat %}{% endblock %}
+                <div class="logoimg">
+                    <img src="{{ STATIC_URL }}civic-hero-logo.png">
+                </div>
             </td>
             <td>
-                {% block userMessage %}{% endblock %}
+                <div class="baseachieve">
+                   {% block achieveFloat %}{% endblock %}
+                </div>
+            </td>
+            <td>
+                <div class="usrmsg">
+                    {% block userMessage %}{% endblock %}
+                </div>
             </td>
         </tr>
     </table>
