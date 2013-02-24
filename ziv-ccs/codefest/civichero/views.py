@@ -1,11 +1,11 @@
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.views.generic import DetailView, CreateView
 
-from models import Citizen
+from models import Citizen, Achievable
 from forms import CitizenForm, LocationForm
 
 
@@ -16,7 +16,12 @@ def setup_view(request, title):
         'title': title,
     }
 
+
 def home(request):
+
+    if not request.user.is_authenticated():
+        return redirect(login)
+
     context = setup_view(request, 'Home Page')
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
@@ -124,6 +129,22 @@ class CitizenDetailView(DetailView):
         queryset = Citizen.objects.all()
 
         return queryset.get(user__username=self.username)
+
+
+#AchievableDetailView
+class AchievableDetailView(DetailView):
+    model = Achievable
+    template_name = 'achievable_details.html'
+
+    # additional parameters
+    name = None
+
+    def get_object(self, queryset=None):
+
+        self.name = self.kwargs['name']
+        queryset = Achievable.objects.all()
+
+        return queryset.get(name=self.name)
 
 
 # class AuthorCreateView(CreateView):

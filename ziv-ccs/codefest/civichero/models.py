@@ -53,6 +53,7 @@ class Citizen(CivicProfile):
     friends = models.ManyToManyField('self', symmetrical=True, null=True, blank=True)
     home_location = models.ForeignKey(Location, related_name='home_location')
     current_location = models.ForeignKey(Location, related_name='current_location', blank=True, null=True)
+    #achieved = models.ManyToOneRel(Achieved, related_name='achieved')
 
     def __unicode__(self):
         return self.last_name + ', ' + self.first_name
@@ -73,13 +74,15 @@ class Achievable(models.Model):
     """This defines how to earn an achievement.
     TODO define requirements
     """
+    name = models.CharField(max_length=50)
     avatar = models.ImageField(upload_to='uploads')
     description = models.CharField(max_length=50)
 
 
 class Achieved(models.Model):
     """This is the achievement roll up for a user."""
-    pass
+    achievables = models.ManyToManyField(Achievable, related_name='achievables')
+    citizens = models.ManyToManyField(Citizen, related_name='citizens')
 
 
 class Activity(models.Model):

@@ -4,7 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from django.views.generic import DetailView
-from civichero.views import CitizenDetailView
+from civichero.views import CitizenDetailView, AchievableDetailView
 from django.views.generic import RedirectView
 
 
@@ -29,6 +29,8 @@ urlpatterns = patterns('',
 
     (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
     (r'^checkin/*$', 'codefest.civichero.views.checkin'),
+
+    (r'^achievements/(?P<name>[a-zA-Z0-9-]+)$', AchievableDetailView.as_view()),
 
     (r'^user/register/', 'codefest.civichero.views.register_user'),
     (r'^user/profile/(?P<username>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view()),

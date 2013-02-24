@@ -114,3 +114,10 @@
     home_location: 100
   model: civichero.citizen
   pk: 400
+
+
+- fields: {avatar: uploads/avatar.png, description: Achieve this by doing stuff!,
+    name: demo}
+  model: civichero.achievable
+  pk: 100
+
