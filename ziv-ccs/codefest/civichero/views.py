@@ -130,13 +130,16 @@ def checkin(request, activity_id):
 
     context['record'] = record
 
+    #Now update acheivements
+    context['new_achievments'] = citizen.checkAchievments(new_only=True)
+
     return render_to_response('checkin.html', context, context_instance=RequestContext(request))
 
 
 @login_required(login_url='/user/login/')
 def add_planned(request, event_id):
 
-    context = setup_view(request, 'Checkin')
+    context = setup_view(request, 'Add to Plan')
     event_id = int(event_id)
     user = request.user
     citizen = Citizen.objects.get(user=user)

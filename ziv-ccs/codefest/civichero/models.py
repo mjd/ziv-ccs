@@ -64,6 +64,78 @@ class Citizen(CivicProfile):
     def __unicode__(self):
         return self.last_name + ', ' + self.first_name
 
+    def checkAchievments(self, new_only=True):
+
+        point_totals = self.getPointTotals()
+        met_score_requirements = self.checkScoreRequirements(point_totals)
+        met_activity_requirements = self.checkActivityRequirements()
+        met_requirements = met_activity_requirements + met_score_requirements
+
+        newly_acheived = []
+
+        #Now look at the acheivables to see what they got!
+        for achievable in Achievable.objects.all():
+            for requirement in achievable.requirements.all():
+                if requirement in met_requirements:
+                    newly_acheived.append(achievable)
+
+        #Now remove anything that they already got
+        if new_only:
+            achieveds = Achieved.objects.all()
+            for achieved in achieveds:
+                if achieved in newly_acheived:
+                    newly_acheived.remove(achieved)
+
+            for achievable in newly_acheived:
+
+                achieved = Achieved.objects.create()
+                achieved.achievables.add(achievable)
+                achieved.citizens.add(self)
+                achieved.save()
+                achievable.save()
+                self.save()
+
+        return newly_acheived
+
+
+
+    def checkScoreRequirements(self, point_totals):
+        score_reqs = ScoreRequirement.objects.all()
+        met_score_requirements = []
+        for score_req in score_reqs:
+            for point_total in point_totals:
+                if not point_total[0] == str(score_req.civic_type.name):
+                    continue
+
+                if point_total[1] >= score_req.reqPoints:
+                    met_score_requirements.append(score_req)
+
+        return met_score_requirements
+
+
+    def checkActivityRequirements(self):
+        records = ActivityRecord.objects.filter(citizen=self)
+        met_activity_requirements = []
+        activity_counts = {}
+
+        for activity_req in ActivityRequirement.objects.all():
+            for record in records:
+                activity = record.activity
+                if activity_req.activity == record.activity:
+
+                    if activity in activity_counts:
+                        activity_counts[activity] +=1
+                    else:
+                        activity_counts[activity] = 1
+
+                    if activity_counts[activity] >= activity_req.reqCount:
+                        met_activity_requirements.append(activity_req)
+
+        return met_activity_requirements
+
+
+
+
 
     def getPointTotals(self):
         records = ActivityRecord.objects.filter(citizen=self)
@@ -71,6 +143,9 @@ class Citizen(CivicProfile):
         totals = {}
 
         for record in records:
+            if not record.status == ActivityRecord.COMPLETED:
+                continue
+
             civic_type = record.civic_type
             activity = record.activity
             points = activity.points
