@@ -1,0 +1,13 @@
+<div id="user_schedule">
+
+    <ul>
+        {% for activity in plans %}
+            <li>
+                <img width=64 src="{{ activity.avatar.url }}"/> You will be attending <br/>
+                {{ activity.name }} on {{ activity.date }} <br/>
+                which is worth {{ activity.points }} {{ activity.civic_type.name }} points.<br/>
+            </li>
+        {% endfor %}
+    </ul>
+
+</div>

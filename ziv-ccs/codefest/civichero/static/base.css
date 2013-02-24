@@ -76,6 +76,21 @@ div.mastfoot {
     margin: 0;
 }
 
+.user_schedule_container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    background-color: #9FC5F8;
+}
+
+#user_schedule ul li  {
+    display: block;
+    list-style-type: none;
+    border-top: none;
+    padding: 6px 7px;
+    margin: 0;
+}
+
 #friend_list ul li  {
     display: block;
     list-style-type: none;
