@@ -1,4 +1,5 @@
 # Django settings for codefest project.
+from os.path import join, abspath, dirname
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -20,6 +21,12 @@ DATABASES = {
     }
 }
 
+
+here = lambda *x: join(abspath(dirname(__file__)), *x)
+PROJECT_ROOT = here("..")
+root = lambda *x: join(abspath(PROJECT_ROOT), *x)
+
+# Configuring MEDIA_ROOT
 AUTH_PROFILE_MODULE = 'codefest.civichero.CivicProfile'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -51,7 +58,8 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = root('media')
+#MEDIA_ROOT = '/Users/jlparise/dev/steelcity/ziv-ccs/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

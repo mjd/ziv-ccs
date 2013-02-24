@@ -4,6 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from django.views.generic import DetailView
+import settings
 from civichero.views import CitizenDetailView, AchievableDetailView
 from django.views.generic import RedirectView
 
@@ -49,3 +50,10 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += staticfiles_urlpatterns()
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+                            url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                                'document_root': settings.MEDIA_ROOT,
+                                }),
+                            )
