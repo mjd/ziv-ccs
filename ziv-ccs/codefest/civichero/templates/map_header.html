@@ -22,13 +22,13 @@
             map: map,
             title:"{{ home_location.place_name }}"});
 
-
+        //Mark every activity in Location infos
         {% for location_info in location_infos %}
-            latlng = new google.maps.LatLng({{ location_info.0.lat }}, {{ location_info.0.lon }});
+            latlng = new google.maps.LatLng({{ location_info.1.lat }}, {{ location_info.1.lon }});
             marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
-                title:"{{ location_info.1 }}"});
+                title:"{{ location_info.0 }}"});
         {%  endfor %}
     }
 </script>
