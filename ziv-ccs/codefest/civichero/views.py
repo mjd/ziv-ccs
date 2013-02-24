@@ -97,8 +97,6 @@ def register_user(request):
                                              user=user, home_location=home_location)
             citizen.save()
 
-            #registrant.registration_date = today
-            #registrant.save()
             context['citizen'] = citizen
 
             return render_to_response('user_profile.html', context, context_instance=RequestContext(request))

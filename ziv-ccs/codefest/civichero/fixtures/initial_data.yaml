@@ -1,27 +1,27 @@
 - fields: {city: Pittsburgh, lat: '40.4274140', lon: '-79.9658350', place_name: Viz,
     state: PA, street_address: 2730 Sidney Street, zip_code: '15203'}
   model: civichero.location
-  pk: 1
+  pk: 100
 - fields: {city: Pittsburgh, lat: '40.4571847', lon: '-79.9168432', place_name: Google,
     state: PA, street_address: 6425 Penn Ave, zip_code: '15206'}
   model: civichero.location
-  pk: 2
+  pk: 200
 - fields: {city: Pittsburgh, lat: '40.4435037', lon: '-79.9415706', place_name: CMU,
     state: pa, street_address: 5000 Forbes Ave, zip_code: '15213'}
   model: civichero.location
-  pk: 3
-- fields: {avatar: uploads/da_avatar.jpg, user: 1}
+  pk: 300
+- fields: {avatar: uploads/da_avatar.jpg, user: 100}
   model: civichero.civicprofile
-  pk: 1
-- fields: {avatar: uploads/jp_avatar.jpg, user: 2}
+  pk: 100
+- fields: {avatar: uploads/jp_avatar.jpg, user: 200}
   model: civichero.civicprofile
-  pk: 2
-- fields: {avatar: uploads/lya_avatar.jpg, user: 3}
+  pk: 200
+- fields: {avatar: uploads/lya_avatar.jpg, user: 300}
   model: civichero.civicprofile
-  pk: 3
-- fields: {avatar: uploads/da_avatar.jpg, user: 4}
+  pk: 300
+- fields: {avatar: uploads/da_avatar.jpg, user: 400}
   model: civichero.civicprofile
-  pk: 4
+  pk: 400
 - fields:
     date_joined: 2013-02-23 21:21:53.352068+00:00
     email: ''
@@ -36,7 +36,7 @@
     user_permissions: []
     username: dan
   model: auth.user
-  pk: 1
+  pk: 100
 - fields:
     date_joined: 2013-02-23 21:21:53.352068+00:00
     email: ''
@@ -51,7 +51,7 @@
     user_permissions: []
     username: jon
   model: auth.user
-  pk: 2
+  pk: 200
 - fields:
     date_joined: 2013-02-23 21:21:53.352068+00:00
     email: ''
@@ -66,7 +66,7 @@
     user_permissions: []
     username: lya
   model: auth.user
-  pk: 3
+  pk: 300
 - fields:
     date_joined: 2013-02-23 21:21:53.352068+00:00
     email: ''
@@ -81,36 +81,36 @@
     user_permissions: []
     username: mike
   model: auth.user
-  pk: 4
+  pk: 400
 - fields:
     first_name: Dan
-    friends: [2, 3, 4]
+    friends: [200, 300, 400]
     last_name: Ap
     email: dan@example.com
-    home_location: 1
+    home_location: 100
   model: civichero.citizen
-  pk: 1
+  pk: 100
 - fields:
     first_name: Jon
-    friends: [1, 3, 4]
+    friends: [100, 300, 400]
     last_name: Pa
     email: jon@example.com
-    home_location: 2
+    home_location: 200
   model: civichero.citizen
-  pk: 2
+  pk: 200
 - fields:
     first_name: Lya
-    friends: [1, 2, 4]
+    friends: [100, 200, 400]
     last_name: La
     email: lya@example.com
-    home_location: 3
+    home_location: 300
   model: civichero.citizen
-  pk: 3
+  pk: 300
 - fields:
     first_name: Mike
-    friends: [1, 2, 3]
+    friends: [100, 200, 300]
     last_name: Da
     email: mike@example.com
-    home_location: 1
+    home_location: 100
   model: civichero.citizen
-  pk: 4
+  pk: 400
