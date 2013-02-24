@@ -86,6 +86,28 @@ class Citizen(CivicProfile):
 
         return point_totals
 
+    def getPlannedEvents(self):
+        records = ActivityRecord.objects.filter(citizen=self, status=ActivityRecord.PLANNED)
+
+        plannedEvents = []
+
+        for record in records:
+            plannedEvents.append(record.activity)
+
+        return plannedEvents
+
+
+    def getFriendsPlannedEvents(self):
+
+        plannedEvents = []
+
+        for friend in self.friends.all():
+
+            plannedEvents.append( (friend, friend.getPlannedEvents()) )
+
+        return plannedEvents
+
+
 
 class Organization(CivicProfile, Location):
     full_name = models.CharField(max_length=50)
@@ -162,9 +184,9 @@ class ActivityRecord(models.Model):
         (u'Missed', u'Missed'),
     )
 
-    COMPLETED = RECORD_STATUS[0][0]
-    PLANNED = RECORD_STATUS[1][0]
-    MISSED = RECORD_STATUS[2][0]
+    COMPLETED = RECORD_STATUS
+    PLANNED = RECORD_STATUS
+    MISSED = RECORD_STATUS
 
     activity = models.ForeignKey(Activity)
     citizen = models.ForeignKey(Citizen)

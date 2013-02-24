@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Event Details{% endblock %}
+
+{%  block content %}
+    <img src="{{ event.avatar.url }}" />
+    <p>{{ event.name }}</p>
+    <p>{{ event.description }}</p>
+
+    {% if has_started  %}
+        <a href="/checkin/{{ event.id }}">Check In!</a>
+    {% else %}
+        <a href="/addplanned/{{ event.id }}">Add to plan</a>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "navbarPage.html" %}
+{% block title %}Activity Details{% endblock %}
+
+{%  block content %}
+    <img src="{{ activity.avatar.url }}" />
+    <p>{{ activity.name }}</p>
+    <p>{{ activity.description }}</p>
+
+    <a href="/checkin/{{ activity.id }}">Check In!</a>
+
+{% endblock %}

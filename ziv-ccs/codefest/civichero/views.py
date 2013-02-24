@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.views.generic import DetailView, CreateView
 from datetime import datetime
 
-from models import Citizen, Achievable, Activity, ActivityRecord
+from models import Citizen, Achievable, Activity, ActivityRecord, Event
 from forms import CitizenForm, LocationForm
 
 
@@ -47,9 +47,12 @@ def home(request):
     if None == citizen:
         return redirect(login)
 
+    friend_plans = citizen.getFriendsPlannedEvents()
     location_infos = getActivityLocations()
+
     context['home_location'] = citizen.home_location
     context['location_infos'] = location_infos
+    context['friend_plans'] = friend_plans
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
@@ -106,16 +109,50 @@ def checkin(request, activity_id):
     user = request.user
     citizen = Citizen.objects.get(user=user)
     activity = Activity.objects.get(id=activity_id)
-    #activity = Activity.objects.get(name='Environmental Steward')
     civic_type = activity.civic_type
 
     now = datetime.now()
 
-    record = ActivityRecord.objects.create(citizen=citizen, activity=activity, timestamp=now,
-                                           civic_type=civic_type, status=ActivityRecord.COMPLETED)
+    #See if there is already a planned record for this
+    records = ActivityRecord.objects.filter(citizen=citizen, activity=activity)
+
+    if 0 <= len(records):
+        record = ActivityRecord.objects.create(citizen=citizen, activity=activity, timestamp=now,
+                                               civic_type=civic_type, status=ActivityRecord.COMPLETED)
+    else:
+        record = records[0]
+        record.status = ActivityRecord.COMPLETED
+        record.save()
 
     context['record'] = record
+
     return render_to_response('checkin.html', context, context_instance=RequestContext(request))
+
+
+@login_required(login_url='/user/login/')
+def add_planned(request, event_id):
+
+    context = setup_view(request, 'Checkin')
+    event_id = int(event_id)
+    user = request.user
+    citizen = Citizen.objects.get(user=user)
+    event = Event.objects.get(id=event_id)
+    civic_type = event.civic_type
+
+    now = datetime.now()
+
+    records = ActivityRecord.objects.filter(citizen=citizen, activity=event)
+
+    if 0 <= len(records):
+
+        record = ActivityRecord.objects.create(citizen=citizen, activity=event, timestamp=now,
+                                               civic_type=civic_type, status=ActivityRecord.PLANNED)
+
+        context['record'] = record
+    else:
+        context['record'] = records[0]
+
+    return render_to_response('addplanned.html', context, context_instance=RequestContext(request))
 
 
 
@@ -198,7 +235,58 @@ class AchievableDetailView(DetailView):
         return queryset.get(name=self.name)
 
 
+#AchievableDetailView
+class ActivityDetailView(DetailView):
+    model = Activity
+    template_name = 'activity.html'
+
+    activity_id = None
+
+    def get_object(self, queryset=None):
+
+        self.activity_id = self.kwargs['activity_id']
+        queryset = Activity.objects.all()
+
+        return queryset.get(id=self.activity_id)
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(ActivityDetailView, self).get_context_data(**kwargs)
+        activity = Activity.objects.get(id=self.activity_id)
+
+        return context
+
+
+class EventDetailView(DetailView):
+    model = Event
+    template_name = 'event.html'
+
+    event_id = None
+
+    def get_object(self, queryset=None):
+
+        self.event_id = self.kwargs['event_id']
+        queryset = Event.objects.all()
+
+        return queryset.get(id=self.event_id)
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(EventDetailView, self).get_context_data(**kwargs)
+
+        event = Event.objects.get(id=self.event_id)
+        now = datetime.now()
+        has_started = event.start_date <= now.date() and event.start_time <= now.time()
+
+
+        # Add in a QuerySet of all the books
+        context['has_started'] = has_started
+
+        return context
+
+
 # class AuthorCreateView(CreateView):
 #     form_class = CitizenForm
 #     template_name = 'create_user.html'
 #     success_url = 'success'
+

@@ -1,1 +1,12 @@
-<div id="user_feed"></div>
+<div id="user_feed">
+
+    {%  for friend_plan in friend_plans %}
+        <div id="planned_activity">
+            {{ friend_plan.0.first_name }} {{ friend_plan.0.last_name }} is attending <br/>
+            {{ activity.name }} on {{ activity.date }} <br/>>
+            which is worth {{ activity.points }}
+            <a href="addplan/{{ event.id }}">Add to Your Plan</a>
+        </div>
+    {% endfor %}
+
+</div>

@@ -5,7 +5,7 @@ from django.contrib import admin
 
 from django.views.generic import DetailView
 import settings
-from civichero.views import CitizenDetailView, AchievableDetailView
+from civichero.views import CitizenDetailView, AchievableDetailView, ActivityDetailView, EventDetailView
 from django.views.generic import RedirectView
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -35,6 +35,10 @@ urlpatterns = patterns('',
 
     (r'^organizer/(\w+)/dashboard/*$', 'codefest.civichero.views.organizer_dashboard'),
     (r'^checkin/(\d+)/*$', 'codefest.civichero.views.checkin'),
+    (r'^addplanned/(\d+)/*$', 'codefest.civichero.views.add_planned'),
+
+    (r'^activity/(?P<activity_id>\d+)/$', ActivityDetailView.as_view()),
+    (r'^event/(?P<event_id>\d+)/$', EventDetailView.as_view()),
 
     (r'^achievements/(?P<name>[a-zA-Z0-9-]+)$', AchievableDetailView.as_view()),
 
@@ -42,8 +46,6 @@ urlpatterns = patterns('',
     (r'^user/profile/(?P<username>[a-zA-Z0-9-]+)/$', CitizenDetailView.as_view()),
 
      #Auth
-     #(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
-
     (r'^login$', 'django.contrib.auth.views.login'),
     (r'^logout', 'django.contrib.auth.views.logout'),
     (r'^users/login/$', 'codefest.civichero.views.login'),
