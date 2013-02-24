@@ -12,28 +12,27 @@ from forms import CitizenForm, LocationForm
 
 
 def setup_view(request, title):
-
-    return {
+    context = {
         'current_path': request.get_full_path(),
         'title': title,
-        'user': request.user,
     }
+    user = request.user
+
+    if request.user.is_authenticated():
+        citizen = Citizen.objects.get(user=user)
+        context['citizen'] = citizen
+        context['point_totals'] = citizen.getPointTotals()
+
+    return context
 
 
 def home(request):
+    context = setup_view(request, 'Home Page')
+    citizen = context['citizen']
 
-    user = request.user
-
-    if not request.user.is_authenticated():
+    if None == citizen:
         return redirect(login)
 
-
-
-    context = setup_view(request, 'Home Page')
-
-    citizen = Citizen.objects.get(user=user)
-    context['point_totals'] = citizen.getPointTotals()
-    context['citizen'] = citizen
     #TODO change to current LOC
     context['location'] = citizen.home_location
 

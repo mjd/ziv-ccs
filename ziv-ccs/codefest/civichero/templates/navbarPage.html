@@ -31,5 +31,8 @@
 
 
 {%  block userMessage %}
-    Great job, {{ user.username }}!
+    Great job, {{ citizen.first_name }}! You have:<p/>
+    {% for point_total in point_totals %}
+        {{ point_total.1 }} {{  point_total.0}} points.<p/>
+    {% endfor %}
 {% endblock %}
