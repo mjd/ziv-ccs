@@ -25,6 +25,8 @@ def setup_view(request, title):
             context['citizen'] = citizen
             context['point_totals'] = citizen.getPointTotals()
 
+            context['achievements'] = citizen.checkAchievments(new_only=False)
+
     return context
 
 

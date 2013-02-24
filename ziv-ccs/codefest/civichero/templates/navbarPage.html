@@ -24,7 +24,9 @@
     <div class="well well-small" id="well_outside">
         This week's achievements:
         <div class="well">
-        Badge
+            {%  for achievement in achievements %}
+                    <span><img src="{{  achievement.avatar.url }}" width="32"/></span>
+            {%  endfor %}
         </div>
     </div>
 {% endblock %}
