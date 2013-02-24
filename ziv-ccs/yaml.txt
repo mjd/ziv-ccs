@@ -1,32 +1,9 @@
 
-- fields: {avatar: uploads/1361714721_dooffy_ikony_christmas_0004_apple.png, description: Purchase
-      of Local Food, name: Local Food}
-  model: civichero.civictype
-  pk: 102
-- fields: {avatar: uploads/1361714939_Art_Artdesigner.png, description: Going to Cultural
-      Events, name: Arts}
-  model: civichero.civictype
-  pk: 103
 - fields: {avatar: uploads/1361715158_Community_Help.png, description: Anything that
       fits in this category, name: Volunteer}
   model: civichero.civictype
   pk: 104
-- fields: {city: Pittsburgh, lat: '40.4223700', lon: '-79.8586030', place_name: Home,
-    state: PA, street_address: 127 Fairfax Rd., zip_code: '15221'}
-  model: civichero.location
-  pk: 302
-- fields: {city: Duquesne, lat: '40.3757050', lon: '-79.8423240', place_name: Food
-      Bank, state: PA, street_address: 1 N Linden Street, zip_code: '15110'}
-  model: civichero.location
-  pk: 303
-- fields: {city: Pittsburgh, lat: '40.4279110', lon: '-79.9774220', place_name: Brashear
-      Association, state: PA, street_address: 2005 Sarah Street, zip_code: '15203'}
-  model: civichero.location
-  pk: 304
-- fields: {avatar: uploads/1361715351_My_Documents.png, civic_type: 104, description: Thanksgiving
-      event, location: 303, name: Thanksgiving Dinner For Poor, points: 15}
-  model: civichero.activity
-  pk: 101
+
 - fields: {avatar: uploads/1361715518_sup.png, civic_type: 104, description: Soup
       Kitchen, location: 304, name: Soup Kitchen, points: 10}
   model: civichero.activity
@@ -37,22 +14,49 @@
 - fields: {cost: '0.00', end_date: null, end_time: null, start_date: 2013-02-24, start_time: '12:00:00'}
   model: civichero.event
   pk: 102
+- fields: {}
+  model: civichero.achievablerequirement
+  pk: 1
+- fields: {}
+  model: civichero.achievablerequirement
+  pk: 2
+- fields: {civic_type: 100, reqPoints: 10}
+  model: civichero.scorerequirement
+  pk: 2
+- fields: {activity: 100, reqCount: 5}
+  model: civichero.activityrequirement
+  pk: 1
 - fields:
     avatar: uploads/avatar.png
     description: Achieve this by doing stuff!
     name: demo
-    requirements: []
+    requirements: [1]
   model: civichero.achievable
   pk: 100
 - fields:
-    date_joined: 2013-02-24 07:36:51.478000+00:00
+    avatar: uploads/1361718970_Shield_Yellow.png
+    description: You helped in your neighborhood 5 times.
+    name: Neighborhood Hero
+    requirements: [1]
+  model: civichero.achievable
+  pk: 101
+- fields:
+    avatar: uploads/1361719184_package_settings.png
+    description: You've helped build house and fix things
+    name: Contruction Wiz
+    requirements: [1]
+  model: civichero.achievable
+  pk: 102
+
+- fields:
+    date_joined: 2013-02-24 12:36:51.478000+00:00
     email: lbatlle@gmail.com
     first_name: ''
     groups: []
     is_active: true
     is_staff: true
     is_superuser: true
-    last_login: 2013-02-24 08:00:40.162000+00:00
+    last_login: 2013-02-24 08:37:25.404000+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$2v8x35icsuGj$UeChU1AkB3ycf8jBq3dbYvSmoIOYSpKZn5aIZDhze6U=
     user_permissions: []
@@ -60,14 +64,14 @@
   model: auth.user
   pk: 1
 - fields:
-    date_joined: 2013-02-24 02:21:53.352068+00:00
+    date_joined: 2013-02-24 07:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 02:21:53.352058+00:00
+    last_login: 2013-02-24 07:21:53.352058+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -75,14 +79,14 @@
   model: auth.user
   pk: 100
 - fields:
-    date_joined: 2013-02-24 02:21:53.352068+00:00
+    date_joined: 2013-02-24 07:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 02:21:53.352058+00:00
+    last_login: 2013-02-24 07:21:53.352058+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -90,14 +94,14 @@
   model: auth.user
   pk: 200
 - fields:
-    date_joined: 2013-02-24 02:21:53.352068+00:00
+    date_joined: 2013-02-24 07:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 02:21:53.352058+00:00
+    last_login: 2013-02-24 07:21:53.352058+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -105,14 +109,14 @@
   model: auth.user
   pk: 300
 - fields:
-    date_joined: 2013-02-24 02:21:53.352068+00:00
+    date_joined: 2013-02-24 07:21:53.352068+00:00
     email: ''
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 02:21:53.352058+00:00
+    last_login: 2013-02-24 07:21:53.352058+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
     user_permissions: []
@@ -120,54 +124,89 @@
   model: auth.user
   pk: 400
 - fields:
-    date_joined: 2013-02-24 07:37:39.335000+00:00
+    date_joined: 2013-02-24 12:37:39.335000+00:00
     email: lbatlle@gmail.com
     first_name: ''
     groups: []
     is_active: true
     is_staff: false
     is_superuser: false
-    last_login: 2013-02-24 07:37:48.610000+00:00
+    last_login: 2013-02-24 12:37:48.610000+00:00
     last_name: ''
     password: pbkdf2_sha256$10000$by6WPy9IWFUd$AOb2vytYcW5CjN7uRrqJMv7F0LIsjtBzY1MKqQWRlHc=
     user_permissions: []
     username: Artana
   model: auth.user
   pk: 401
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:20:39.426000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:20:39.426000+00:00',
     change_message: '', content_type: 14, object_id: '102', object_repr: Event object,
     user: 1}
   model: admin.logentry
   pk: 7
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:20:09.487000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:20:09.487000+00:00',
     change_message: '', content_type: 9, object_id: '304', object_repr: '2005 Sarah
       Street Pittsburgh, PA 15203', user: 1}
   model: admin.logentry
   pk: 6
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:17:24.790000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:17:24.790000+00:00',
     change_message: '', content_type: 14, object_id: '101', object_repr: Event object,
     user: 1}
   model: admin.logentry
   pk: 5
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:16:54.601000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:16:54.601000+00:00',
     change_message: '', content_type: 9, object_id: '303', object_repr: '1 N Linden
       Street Duquesne, PA 15110', user: 1}
   model: admin.logentry
   pk: 4
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:12:57.547000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:12:57.547000+00:00',
     change_message: '', content_type: 8, object_id: '104', object_repr: Volunteer,
     user: 1}
   model: admin.logentry
   pk: 3
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:09:49.785000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:09:49.785000+00:00',
     change_message: '', content_type: 8, object_id: '103', object_repr: Arts, user: 1}
   model: admin.logentry
   pk: 2
-- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:05:36.422000+00:00',
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 13:05:36.422000+00:00',
     change_message: '', content_type: 8, object_id: '102', object_repr: Local Food,
     user: 1}
   model: admin.logentry
   pk: 1
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 09:20:24.819000+00:00',
+    change_message: '', content_type: 18, object_id: '102', object_repr: Contruction
+      Wiz, user: 1}
+  model: admin.logentry
+  pk: 14
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 09:17:14.481000+00:00',
+    change_message: '', content_type: 18, object_id: '101', object_repr: Neighborhood
+      Hero, user: 1}
+  model: admin.logentry
+  pk: 13
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 09:07:04.493000+00:00',
+    change_message: No fields changed., content_type: 18, object_id: '100', object_repr: demo,
+    user: 1}
+  model: admin.logentry
+  pk: 12
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 08:54:30.323000+00:00',
+    change_message: No fields changed., content_type: 16, object_id: '2', object_repr: 10or
+      moreenvironmentalism, user: 1}
+  model: admin.logentry
+  pk: 11
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:44:54.465000+00:00',
+    change_message: '', content_type: 16, object_id: '2', object_repr: ScoreRequirement
+      object, user: 1}
+  model: admin.logentry
+  pk: 10
+- fields: {action_flag: 2, action_time: !!timestamp '2013-02-24 08:43:07.593000+00:00',
+    change_message: Changed requirements., content_type: 18, object_id: '100', object_repr: Achievable
+      object, user: 1}
+  model: admin.logentry
+  pk: 9
+- fields: {action_flag: 1, action_time: !!timestamp '2013-02-24 08:42:48.995000+00:00',
+    change_message: '', content_type: 17, object_id: '1', object_repr: ActivityRequirement
+      object, user: 1}
+  model: admin.logentry
+  pk: 8
 - fields: {avatar: uploads/da_avatar.jpg, user: 100}
   model: civichero.civicprofile
   pk: 100
@@ -183,6 +222,42 @@
 - fields: {avatar: uploads/lya_avatar_5.jpg, user: 401}
   model: civichero.civicprofile
   pk: 401
+- fields:
+    current_location: null
+    email: dan@example.com
+    first_name: Dan
+    friends: [200, 300, 400]
+    home_location: 100
+    last_name: Ap
+  model: civichero.citizen
+  pk: 100
+- fields:
+    current_location: null
+    email: jon@example.com
+    first_name: Jon
+    friends: [100, 300, 400]
+    home_location: 200
+    last_name: Pa
+  model: civichero.citizen
+  pk: 200
+- fields:
+    current_location: null
+    email: lya@example.com
+    first_name: Lya
+    friends: [100, 200, 400]
+    home_location: 300
+    last_name: La
+  model: civichero.citizen
+  pk: 300
+- fields:
+    current_location: null
+    email: mike@example.com
+    first_name: Mike
+    friends: [100, 200, 300]
+    home_location: 100
+    last_name: Da
+  model: civichero.citizen
+  pk: 400
 - fields:
     current_location: null
     email: lbatlle@gmail.com
