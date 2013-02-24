@@ -6,12 +6,21 @@
 {% endblock %}
 
 {%  block content %}
-    <h1>Civic Hero!</h1>
-    <p>We are awesome!</p>
-
-    <p>Hi  {{ citizen.first_name }}, welcome to your profile!</p>
-
-    {% include 'user_points_table.html' %}
-
-    {% include 'map_body.html' %}
+    <table>
+        <tr>
+            <td><div class="user_table_title">Feed</div></td><td><div class="user_table_title">Event Map</div></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="user_feed_container">
+                    {% include 'user_feed.html' %}
+                </div>
+            </td>
+            <td>
+                <div class="map_body_container">
+                    {% include 'map_body.html' %}
+                </div>
+            </td>
+        </tr>
+    </table>
 {% endblock %}
