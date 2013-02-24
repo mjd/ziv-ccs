@@ -1,6 +1,10 @@
 {% extends "navbarPage.html" %}
 {% block title %}Home{% endblock %}
 
+{% block map_head %}
+    {% include 'map_header.html' %}
+{% endblock %}
+
 {%  block content %}
     <h1>Civic Hero!</h1>
     <p>We are awesome!</p>
@@ -8,4 +12,6 @@
     <p>Hi  {{ citizen.first_name }}, welcome to your profile!</p>
 
     {% include 'user_points_table.html' %}
+
+    {% include 'map_body.html' %}
 {% endblock %}

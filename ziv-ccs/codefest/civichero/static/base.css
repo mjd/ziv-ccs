@@ -9,3 +9,8 @@ div.mastfoot {
     padding-top: 20px;
     font-size: smaller;
 }
+
+#map_canvas{
+    width: 620px;
+    height: 620px;
+}

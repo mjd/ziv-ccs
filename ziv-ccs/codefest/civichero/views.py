@@ -27,11 +27,15 @@ def home(request):
     if not request.user.is_authenticated():
         return redirect(login)
 
+
+
     context = setup_view(request, 'Home Page')
 
     citizen = Citizen.objects.get(user=user)
     context['point_totals'] = citizen.getPointTotals()
     context['citizen'] = citizen
+    #TODO change to current LOC
+    context['location'] = citizen.home_location
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 
