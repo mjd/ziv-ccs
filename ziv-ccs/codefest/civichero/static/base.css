@@ -3,3 +3,9 @@ body
     background-color: #FFD966;
     color: #000000;
 }
+
+div.mastfoot {
+    text-align: center;
+    padding-top: 20px;
+    font-size: smaller;
+}

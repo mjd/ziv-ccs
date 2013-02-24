@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}base.css" type="text/css">
     <style type="text/css">
         body {
-            padding-top: 60px;
+            padding: 20px;
         }
     </style>
     <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     {% block extra_head %}{% endblock %}
 
     <div class="masthead">
-        <img src="{{ STATIC_URL }}avatar.png">
+        <img src="{{ STATIC_URL }}civic-hero-logo.png">
         <h3 class="muted">Civic Achiever</h3>
         {% block header %}{% endblock %}
     </div>
@@ -33,6 +33,9 @@
 {% block content %}{% endblock %}
 
 </div><!-- container -->
-
+    <div class="mastfoot">
+        <div>©2013 Civic Hero Team - <a href="about">About Us</a> - <a href="mailto:civic-hero@example.com">Contact Us</a> - <a href="legal">Terms and Policies</a></div>
+        <div>Part of the <a href="http://steelcitycodefest.org/">Steel City Codefest</a> Initiative</div>
+    </div>
 </body>
 </html>

@@ -26,6 +26,8 @@ urlpatterns = patterns('',
 
     (r'^/*$', RedirectView.as_view(url='/home')),
     (r'^home/*$', 'codefest.civichero.views.home'),
+    (r'^about/*$', 'codefest.civichero.views.about'),
+    (r'^legal/*$', 'codefest.civichero.views.legal'),
     (r'^schedule/*$', 'codefest.civichero.views.schedule'),
     (r'^friends/*$', 'codefest.civichero.views.friends'),
     (r'^leaderboard/*$', 'codefest.civichero.views.leaderboard'),

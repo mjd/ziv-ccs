@@ -34,6 +34,16 @@ def friends(request):
 
     return render_to_response('friends.html', context, context_instance=RequestContext(request))
 
+def about(request):
+    context = setup_view(request, 'About')
+
+    return render_to_response('about.html', context, context_instance=RequestContext(request))
+
+def legal(request):
+    context = setup_view(request, 'legal')
+
+    return render_to_response('legal.html', context, context_instance=RequestContext(request))
+
 
 def schedule(request):
     context = setup_view(request, 'Schedule')
