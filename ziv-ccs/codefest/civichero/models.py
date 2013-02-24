@@ -98,38 +98,60 @@ class Organization(CivicProfile, Location):
         return self.full_name
 
 
+class Activity(models.Model):
+    name = models.CharField(max_length=50)
+    avatar = models.ImageField(upload_to='uploads')
+    description = models.CharField(max_length=500)
+    civic_type = models.ForeignKey(CivicType)
+    location = models.ForeignKey(Location, related_name='location', blank=True, null=True)
+    points = models.PositiveIntegerField()
+
+
+
+class Event(Activity):
+    cost = CurrencyField(decimal_places=2, max_digits=10, blank=True, default=0.00)
+    start_date = models.DateField(default=datetime.now().date())
+    start_time = models.TimeField(default=datetime.now().time())
+    end_date = models.DateField(blank=True, default=None, null=True)
+    end_time = models.TimeField(blank=True, default=None, null=True)
+
+
+class AchievableRequirement(models.Model):
+    """
+    Tag requirement of an achievable.
+    """
+    pass
+
+
+class ScoreRequirement(AchievableRequirement):
+    """
+    Requirement for minimum total score in a given type.
+    """
+    civic_type = models.ForeignKey(CivicType)
+    reqPoints = models.PositiveIntegerField()
+
+
+class ActivityRequirement(AchievableRequirement):
+    """
+    Requirement for number of times a given activity must be completed.
+    """
+    activity = models.ForeignKey(Activity)
+    reqCount = models.PositiveIntegerField()
+
+
 class Achievable(models.Model):
     """This defines how to earn an achievement.
-    TODO define requirements
     """
     name = models.CharField(max_length=50)
     avatar = models.ImageField(upload_to='uploads')
     description = models.CharField(max_length=50)
+    requirements = models.ManyToManyField(AchievableRequirement, related_name='requirements')
 
 
 class Achieved(models.Model):
     """This is the achievement roll up for a user."""
     achievables = models.ManyToManyField(Achievable, related_name='achievables')
     citizens = models.ManyToManyField(Citizen, related_name='citizens')
-
-
-class Activity(models.Model):
-    name = models.CharField(max_length=50)
-    avatar = models.ImageField(upload_to='uploads')
-    description = models.CharField(max_length=500)
-    civic_type = models.ForeignKey(CivicType)
-    location = models.ForeignKey(Location, related_name='activity_location', blank=True, null=True)
-    points = models.PositiveIntegerField()
-
-
-
-class Event(Activity):
-    event_location = models.ForeignKey(Location, related_name='event_location')
-    cost = CurrencyField(decimal_places=2, max_digits=10, blank=True, default=0.00)
-    start_date = models.DateField(default=datetime.now().date())
-    start_time = models.TimeField(default=datetime.now().time())
-    end_date = models.DateField(blank=True, default=None, null=True)
-    end_time = models.TimeField(blank=True, default=None, null=True)
 
 
 class ActivityRecord(models.Model):

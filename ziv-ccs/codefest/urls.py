@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     (r'^/*$', RedirectView.as_view(url='/home')),
+    (r'^accounts/profile/*$', RedirectView.as_view(url='/home')),
     (r'^home/*$', 'codefest.civichero.views.home'),
     (r'^about/*$', 'codefest.civichero.views.about'),
     (r'^legal/*$', 'codefest.civichero.views.legal'),
