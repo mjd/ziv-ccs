@@ -21,10 +21,15 @@ def setup_view(request, title):
 
 def home(request):
 
+    user = request.user
+
     if not request.user.is_authenticated():
         return redirect(login)
 
     context = setup_view(request, 'Home Page')
+
+    citizen = Citizen.objects.get(user=user)
+    context['point_totals'] = citizen.getPointTotals()
 
     return render_to_response('index.html', context, context_instance=RequestContext(request))
 

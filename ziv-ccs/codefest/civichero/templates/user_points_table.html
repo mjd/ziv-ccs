@@ -1,0 +1,12 @@
+<table id="'points_table">
+<tr>
+    <td>Points</td>
+    <td>Civic Type</td>
+</tr>
+{% for point_total in point_totals %}
+    <tr>
+        <td>{{  point_total.1}}</td>
+        <td>{{ point_total.0 }} points</td>
+    </tr>
+{% endfor %}
+</table>

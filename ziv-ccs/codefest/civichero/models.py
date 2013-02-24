@@ -15,6 +15,10 @@ class CivicType(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return str(self.name)
+
+
 
 class Location(models.Model):
     """Abstract base class for anything with an address.  This model stores the address information and also the geo
@@ -59,6 +63,28 @@ class Citizen(CivicProfile):
 
     def __unicode__(self):
         return self.last_name + ', ' + self.first_name
+
+
+    def getPointTotals(self):
+        records = ActivityRecord.objects.filter(citizen=self)
+
+        totals = {}
+
+        for record in records:
+            civic_type = record.civic_type
+            activity = record.activity
+            points = activity.points
+
+            if civic_type in totals:
+                totals[civic_type] += points
+            else:
+                totals[civic_type] = points
+
+        point_totals = []
+        for key in totals.keys():
+            point_totals.append( (str(key), totals[key]) )
+
+        return point_totals
 
 
 class Organization(CivicProfile, Location):

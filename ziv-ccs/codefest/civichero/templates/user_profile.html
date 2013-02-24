@@ -4,4 +4,6 @@
 {%  block content %}
     <img src="{{ citizen.avatar.url }}" />
     <p>Hi  {{ citizen.first_name }}, welcome to your profile!</p>
+
+    {% include 'user_points_table.html' %}
 {% endblock %}
