@@ -1,12 +1,8 @@
-<table id="pointstable">
-<tr>
-    <td>Points</td>
-    <td>Civic Type</td>
-</tr>
-{% for point_total in point_totals %}
-    <tr>
-        <td>{{ point_total.1}}</td>
-        <td>{{ point_total.0 }} points</td>
-    </tr>
-{% endfor %}
-</table>
+    <div class="span12"><p class="text-left">Point Total by Type:</p>
+        {% for point_total in point_totals %}
+            <div class="row-fluid">
+                <div class="span1">{{ point_total.1}}</div>
+                <div class="span11"><p class="text-left">{{ point_total.0}} points</p></div>
+            </div>
+        {% endfor %}
+    </div>
