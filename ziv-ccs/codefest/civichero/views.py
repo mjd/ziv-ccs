@@ -1,10 +1,9 @@
 # Create your views here.
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView
 from datetime import datetime
 
 from models import Citizen, Achievable, Activity, ActivityRecord, Event
@@ -79,8 +78,21 @@ def legal(request):
 
 def schedule(request):
     context = setup_view(request, 'Schedule')
+    citizen = context['citizen']
+    if None == citizen:
+        return redirect(login)
+
+    plans = citizen.getPlannedEvents()
+    context['home_location'] = citizen.home_location
+    context['plans'] = plans
 
     return render_to_response('schedule.html', context, context_instance=RequestContext(request))
+
+
+def scheduleGraph(request):
+    context = setup_view(request, 'ScheduleGraph')
+
+    return render_to_response('scheduleGraph.html', context, context_instance=RequestContext(request))
 
 
 def leaderboard(request):
