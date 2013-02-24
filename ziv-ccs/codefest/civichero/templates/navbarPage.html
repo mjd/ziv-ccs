@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%  block header %}
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                <li class="{% ifequal current_path '/home'%} active {% endifequal %}">
+                    <a href="home">Be a Civic Hero</a></li>
+                <li class="{% ifequal current_path '/schedule'%} active {% endifequal %}">
+                    <a href="schedule">Schedule of Events</a></li>
+                <li class="{% ifequal current_path '/friends'%} active {% endifequal %}">
+                    <a href="friends">Friends</a></li>
+                <li class="{% ifequal current_path '/leaderboard'%} active {% endifequal %}">
+                    <a href="leaderboard">All Leadership Boards</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- /.navbar -->
+{% endblock %}
