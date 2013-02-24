@@ -9,20 +9,6 @@ div.lightblue {
     color: #9FC5F8
 }
 
-div.logoimg {
-    padding-bottom: 90px;
-}
-
-div.baseachieve {
-    padding-bottom: 10px;
-    padding-left: 150px;
-}
-
-div.usrmsg {
-    padding-bottom: 100px;
-    padding-left: 150px;
-}
-
 div.pointstable {
     padding-bottom: 100px;
     padding-left: 150px;
@@ -38,7 +24,9 @@ div.mastfoot {
     width: 400px;
     height: 400px;
 }
-
+#well_outside{
+    background-color: #9FC5F8
+}
 #map_canvas {
     width: 400px;
     height: 400px;

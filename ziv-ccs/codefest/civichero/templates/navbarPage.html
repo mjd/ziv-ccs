@@ -21,17 +21,20 @@
 
 
 {%  block achieveFloat %}
-    <div class="well">
+    <div class="well well-small" id="well_outside">
         This week's achievements:
         <div class="well">
-        Badge
+            {%  for achievement in achievements %}
+                    <span><img src="{{  achievement.avatar.url }}" width="32"/></span>
+            {%  endfor %}
         </div>
     </div>
 {% endblock %}
 
 
 {%  block userMessage %}
-    Great job, {{ citizen.user.username }}!
-    <br/>
-    {% include 'user_points_table.html' %}
+    <p class="text-left">Great job, {{ citizen.user.username }}!</p>
+        <div class="row-fluid">
+          {% include 'user_points_table.html' %}
+        </div>
 {% endblock %}

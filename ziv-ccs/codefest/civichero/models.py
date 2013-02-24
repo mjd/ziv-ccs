@@ -76,8 +76,9 @@ class Citizen(CivicProfile):
         #Now look at the acheivables to see what they got!
         for achievable in Achievable.objects.all():
             for requirement in achievable.requirements.all():
-                if requirement in met_requirements:
-                    newly_acheived.append(achievable)
+                    for met_req in met_requirements:
+                        if requirement.id == met_req.id:
+                            newly_acheived.append(achievable)
 
         #Now remove anything that they already got
         if new_only:
@@ -128,7 +129,7 @@ class Citizen(CivicProfile):
                     else:
                         activity_counts[activity] = 1
 
-                    if activity_counts[activity] >= activity_req.reqCount:
+                    if activity_counts[activity] >= activity_req.reqCount and not activity_req in met_activity_requirements:
                         met_activity_requirements.append(activity_req)
 
         return met_activity_requirements
@@ -224,6 +225,10 @@ class AchievableRequirement(models.Model):
     def __unicode__(self):
         return ''
 
+    def __eq__(self, other):
+        return (isinstance(other, self.__class__)
+                and self.__dict__ == other.__dict__)
+
 
 class ScoreRequirement(AchievableRequirement):
     """
@@ -235,6 +240,10 @@ class ScoreRequirement(AchievableRequirement):
     def __unicode__(self):
         return unicode(self.reqPoints) + ' or more ' + unicode(self.civic_type)
 
+    def __eq__(self, other):
+        return (isinstance(other, self.__class__)
+                and self.__dict__ == other.__dict__)
+
 class ActivityRequirement(AchievableRequirement):
     """
     Requirement for number of times a given activity must be completed.
@@ -244,6 +253,10 @@ class ActivityRequirement(AchievableRequirement):
 
     def __unicode__(self):
         return unicode(self.reqCount) + ' or more ' + unicode(self.activity)
+
+    def __eq__(self, other):
+        return (isinstance(other, self.__class__)
+                and self.__dict__ == other.__dict__)
 
 class Achievable(models.Model):
     """This defines how to earn an achievement.
