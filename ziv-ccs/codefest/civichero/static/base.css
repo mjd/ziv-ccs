@@ -2,6 +2,15 @@ body
 {
     background-color: #FFD966;
     color: #000000;
+    padding: 20px;
+}
+
+div.lightblue {
+    color: #9FC5F8
+}
+
+div.logoimg {
+    padding-bottom: 20px;
 }
 
 div.mastfoot {
@@ -10,7 +19,36 @@ div.mastfoot {
     font-size: smaller;
 }
 
-#map_canvas{
-    width: 620px;
-    height: 620px;
+#user_feed {
+    width: 400px;
+    height: 400px;
+}
+
+#map_canvas {
+    width: 400px;
+    height: 400px;
+}
+
+.user_table_title {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 400px;
+    background-color: #9FC5F8;
+    text-align: center;
+}
+
+.map_body_container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    background-color: #9FC5F8;
+}
+
+.user_feed_container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    background-color: #9FC5F8;
 }

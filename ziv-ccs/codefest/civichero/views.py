@@ -34,7 +34,7 @@ def getActivityLocations():
     location_infos = []
 
     for activity in activities:
-        location_infos.append( (activity.name, activity.location) )
+        location_infos.append( (str(activity.name), activity.location) )
 
     return location_infos
 

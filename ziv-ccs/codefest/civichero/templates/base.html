@@ -6,11 +6,6 @@
     <title>Civic Hero - {% block title %}{% endblock %}</title>
     {% bootstrap_stylesheet_tag %}
     <link rel="stylesheet" href="{{ STATIC_URL }}base.css" type="text/css">
-    <style type="text/css">
-        body {
-            padding: 20px;
-        }
-    </style>
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -23,11 +18,11 @@
 <body>
 
 <div class="masthead">
+    <div class="logoimg">
+        <img src="{{ STATIC_URL }}civic-hero-logo.png">
+    </div>
     <table>
         <tr>
-            <td>
-                <img src="{{ STATIC_URL }}civic-hero-logo.png">
-            </td>
             <td>
                 {% block achieveFloat %}{% endblock %}
             </td>
