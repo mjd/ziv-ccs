@@ -39,7 +39,7 @@
     is_superuser: false
     last_login: 2013-02-23 21:21:53.352058+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: dan
   model: auth.user
@@ -54,7 +54,7 @@
     is_superuser: false
     last_login: 2013-02-23 21:21:53.352058+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: jon
   model: auth.user
@@ -69,7 +69,7 @@
     is_superuser: false
     last_login: 2013-02-23 21:21:53.352058+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: lya
   model: auth.user
@@ -84,7 +84,7 @@
     is_superuser: false
     last_login: 2013-02-23 21:21:53.352058+00:00
     last_name: ''
-    password: pbkdf2_sha256$10000$DsEMOJr0T6IT$aeYQV2eyGFG04kwtE+w50YoXsynqI+MSRTJQAFe08C0=
+    password: pbkdf2_sha256$10000$E3Hvpwou9Zyc$4NTFqFjj6gAMmFtCDGxFGwnSbDOYc9qL7zFcMEI9GnI=
     user_permissions: []
     username: mike
   model: auth.user
@@ -309,3 +309,16 @@
     requirements: [1]
   model: civichero.achievable
   pk: 102
+
+- fields: {activity: 101, citizen: 100, civic_type: 104, status: Planned, timestamp: !!timestamp '2013-02-24
+      09:42:55+00:00'}
+  model: civichero.activityrecord
+  pk: 1
+- fields: {activity: 101, citizen: 200, civic_type: 104, status: Planned, timestamp: !!timestamp '2013-02-24
+      09:48:57+00:00'}
+  model: civichero.activityrecord
+  pk: 2
+- fields: {activity: 101, citizen: 400, civic_type: 104, status: Planned, timestamp: !!timestamp '2013-02-24
+      10:13:44+00:00'}
+  model: civichero.activityrecord
+  pk: 3

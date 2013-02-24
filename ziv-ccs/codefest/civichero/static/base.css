@@ -62,3 +62,13 @@ div.mastfoot {
     padding: 10px;
     background-color: #9FC5F8;
 }
+
+#user_feed ul li  {
+    display: block;
+    list-style-type: none;
+    border-top: none;
+    padding: 6px 7px;
+    margin: 0;
+}
+
+

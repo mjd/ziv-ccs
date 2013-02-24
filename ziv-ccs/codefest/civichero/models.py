@@ -195,9 +195,9 @@ class ActivityRecord(models.Model):
         (u'Missed', u'Missed'),
     )
 
-    COMPLETED = RECORD_STATUS
-    PLANNED = RECORD_STATUS
-    MISSED = RECORD_STATUS
+    COMPLETED = RECORD_STATUS[0][0]
+    PLANNED = RECORD_STATUS[1][0]
+    MISSED = RECORD_STATUS[2][0]
 
     activity = models.ForeignKey(Activity)
     citizen = models.ForeignKey(Citizen)
