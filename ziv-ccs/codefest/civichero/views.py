@@ -16,6 +16,7 @@ def setup_view(request, title):
     return {
         'current_path': request.get_full_path(),
         'title': title,
+        'user': request.user,
     }
 
 
