@@ -15,15 +15,16 @@ def setup_view(request, title):
     context = {
         'current_path': request.get_full_path(),
         'title': title,
+        'citizen': None,
     }
     user = request.user
 
     if request.user.is_authenticated():
-        citizen = Citizen.objects.get(user=user)
-        context['citizen'] = citizen
-        context['point_totals'] = citizen.getPointTotals()
-    else:
-        context['citizen'] = None
+        citizens = Citizen.objects.filter(user=user)
+        if 0 < len(citizens):
+            citizen = Citizen.objects.get(user=user)
+            context['citizen'] = citizen
+            context['point_totals'] = citizen.getPointTotals()
 
     return context
 
@@ -42,11 +43,11 @@ def getActivityLocations():
 def home(request):
     context = setup_view(request, 'Home Page')
     citizen = context['citizen']
-    location_infos = getActivityLocations()
 
     if None == citizen:
         return redirect(login)
 
+    location_infos = getActivityLocations()
     context['home_location'] = citizen.home_location
     context['location_infos'] = location_infos
 
