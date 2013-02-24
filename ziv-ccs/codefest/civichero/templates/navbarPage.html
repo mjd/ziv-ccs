@@ -31,5 +31,7 @@
 
 
 {%  block userMessage %}
-    Great job, {{ user.username }}!
+    Great job, {{ citizen.user.username }}!
+    <br/>
+    {% include 'user_points_table.html' %}
 {% endblock %}
